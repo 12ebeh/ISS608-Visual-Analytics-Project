@@ -1,0 +1,33 @@
+area,floor,start_px,end_px,start_py,end_py
+entrance 0-2,1,0,0,2,2
+entrance 2-0,1,2,2,0,0
+entrance 4-0,1,4,4,0,0
+exit 5-0,1,5,5,0,0
+entrance 7-0,1,7,7,0,0
+exit 15-0,1,15,15,0,0
+exit 17-0,1,17,17,0,0
+exit 19-15,1,19,19,15,15
+reception,1,2,5,2,4
+main convention,1,19,28,4,13
+exhibition hall a,1,1,5,12,13
+exhibition hall b,1,1,5,10,11
+exhibition hall c,1,1,5,8,9
+exhibition hall d,1,1,5,6,7
+exhibition hall,1,15,18,4,13
+toilet 1,1,10,11,10,11
+toilet 2,1,27,28,0,1
+poster area,1,7,8,6,12
+service counter,1,19,20,0,1
+north stairway (1st floor),1,10,11,14,14
+south stairway (1st floor),1,10,11,1,1
+room 1,1,10,11,6,9
+room 2,1,10,11,4,5
+room 3,1,21,24,0,1
+room 4,1,25,26,0,1
+room 5,2,1,5,4,5
+room 6,2,10,11,8,9
+toilet 3,2,10,11,10,11
+north stairway (2nd floor),2,10,11,14,14
+south stairway (2nd floor),2,10,11,1,1
+restaurant,2,1,5,6,13
+rest area,2,0,5,0,2
