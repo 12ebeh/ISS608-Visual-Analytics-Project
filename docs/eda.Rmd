@@ -25,11 +25,11 @@ for (p in 1:length(packages)) {
 ```
 
 ```{r}
-sensor.location = read_csv("./data/sensor location.csv")
-day1 <- read_csv("./data/day1.csv")
-day2 <- read_csv("./data/day2.csv")
-day3 <- read_csv("./data/day3.csv")
-zones <- read_csv("./data/zones.csv")
+sensor.location = read_csv("../data/sensor location.csv")
+day1 <- read_csv("../data/day1.csv")
+day2 <- read_csv("../data/day2.csv")
+day3 <- read_csv("../data/day3.csv")
+zones <- read_csv("../data/zones.csv")
 ```
 
 # Data Status
@@ -81,8 +81,8 @@ day3 <- clean_days(day3)
 # Sensor Distribution
 
 ```{r}
-floor1 <- grid::rasterGrob(imager::load.image("./floor plan/floor 1 cleaned.jpg"), width = unit(1,"npc"), height = unit(1,"npc"))
-floor2 <- grid::rasterGrob(imager::load.image("./floor plan/floor 2 cleaned.jpg"), width = unit(1,"npc"), height = unit(1,"npc"))
+floor1 <- grid::rasterGrob(imager::load.image("../floor plan/floor 1 cleaned.jpg"), width = unit(1,"npc"), height = unit(1,"npc"))
+floor2 <- grid::rasterGrob(imager::load.image("../floor plan/floor 2 cleaned.jpg"), width = unit(1,"npc"), height = unit(1,"npc"))
 ```
 
 ```{r}
@@ -333,6 +333,12 @@ simplify_day <- function(df) {
          time_stayed = time_end - time) %>%
   ungroup()
 }
+```
+
+```{r}
+write_csv(day1.simplified, "../data/day1_simplified.csv")
+write_csv(day2.simplified, "../data/day2_simplified.csv")
+write_csv(day2.simplified, "../data/day3_simplified.csv")
 ```
 
 ```{r}

@@ -100,11 +100,11 @@ data_prep_settings <- function(input, output, session) {
   
   output$area_interest_checkboxes <- renderUI({
     area.names <- ZONES$area %>% unique() %>% sort()
-    initial.areas <- c("main convention", "exhibition hall a", "exhibition hall b", "exhibition hall c", "exhibition hall d", "exhibition hall",
-                       "poster area", "room 1", "room 2", "room 3", "room 4", "room 5", "room 6", "restaurant", "rest area")
+    #print("Hello")
+    #print(INITIAL_AREAS)
     div(
       checkboxGroupInput(ns("area_interest"), "Areas of Interest",
-                         choices = area.names, inline = T, selected = initial.areas)
+                         choices = area.names, inline = T, selected = INITIAL_AREAS)
     )
   })
   
@@ -126,7 +126,6 @@ data_prep_server <- substitute({
   # Server code below
   callModule(floor_map, PANEL.NAMESPACE)
   callModule(data_prep_settings, PANEL.NAMESPACE)
-
 })
 
 # call this function to add your server logic

@@ -1,3 +1,6 @@
+INITIAL_AREAS <<- c("main convention", "exhibition hall a", "exhibition hall b", "exhibition hall c", "exhibition hall d", "exhibition hall",
+                    "poster area", "room 1", "room 2", "room 3", "room 4", "room 5", "room 6", "restaurant", "rest area")
+
 clean_sensors <- function(df) {
   df <-
     df %>%
@@ -79,4 +82,14 @@ create_daily_data <- function(day.df, areas.include, time.interval, file_suffix)
   
   #write_csv(day.simplified.df, paste(file_suffix, "simplified.csv", sep = "_"))
   write_csv(day.area.df, paste("./data/", file_suffix, "_area_visitors.csv", sep = ""))
+}
+
+create_daily_ridgeline_plot <- function(day.area, day, areas.include) {
+  day.area %>%
+    filter(area %in% areas.include) %>%
+    mutate(visitor_count_index = log10(visitor_count)) %>%
+    ggplot(aes(x = start_time, y = as.factor(area))) +
+    ggridges::geom_ridgeline(aes(height = visitor_count_index, group = as.factor(area))) +
+    labs(x = "Time in Seconds", y ="Area", title = paste("Area Visitor over Time on Day", day)) %>%
+    return()
 }

@@ -2,7 +2,8 @@
 # Include Libraries
 ###############################################################################
 packages <- c("tidyverse" = T, "lubridate" = T, "shiny" = T,
-              "funModeling" = F, "imager" = F, "grid" = F, "sqldf" = F, "ggridges" = F)
+              "funModeling" = F, "imager" = F, "grid" = F, "sqldf" = F, "ggridges" = F,
+              "gridExtra" = F)
 installed <- installed.packages()
 for (p in 1:length(packages)) {
   package.name <- names(packages[p])
@@ -26,6 +27,12 @@ source("logic.R")
 DAY1 <<- read_csv("./data/day1.csv")
 DAY2 <<- read_csv("./data/day2.csv")
 DAY3 <<- read_csv("./data/day3.csv")
+DAY1_SIMPLIFIED <<- read_csv("./data/day1_simplified.csv")
+DAY2_SIMPLIFIED <<- read_csv("./data/day2_simplified.csv")
+DAY3_SIMPLIFIED <<- read_csv("./data/day3_simplified.csv")
+DAY1_AREA <<- read_csv("./data/day1_area_visitors.csv")
+DAY2_AREA <<- read_csv("./data/day2_area_visitors.csv")
+DAY3_AREA <<- read_csv("./data/day3_area_visitors.csv")
 SENSORS <<- read_csv("./data/sensor location.csv")
 ZONES <<- read_csv("./data/zones.csv")
 FLOOR1 <<- grid::rasterGrob(imager::load.image("./floor plan/floor 1 cleaned.jpg"),
@@ -64,7 +71,8 @@ ADD_SERVER_LOGIC <<- function(new.logic) {
 }
 
 #source("./app panels/template_panel.R")
-source("./app panels/data_prep.R")
+source("./app panels/data_prep.R", local = T)
+source("./app panels/ridgelines.R", local = T)
 
 ###############################################################################
 # APP UI
@@ -79,7 +87,7 @@ ui <- shiny::fluidPage(
 ###############################################################################
 server <- function(input, output, session) {
   for (logic in SERVER.LOGIC) {
-    #print(logic)
+    print(logic)
     eval(logic)
   }
 }
