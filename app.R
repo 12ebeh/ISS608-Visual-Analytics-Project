@@ -1,9 +1,10 @@
 ###############################################################################
 # Include Libraries
 ###############################################################################
-packages <- c("tidyverse" = T, "lubridate" = T, "shiny" = T,
+packages <- c("tidyverse" = T, "lubridate" = T,
+              "shiny" = T, "shinyTree"= T,
               "funModeling" = F, "imager" = F, "grid" = F, "sqldf" = F, "ggridges" = F,
-              "gridExtra" = F)
+              "gridExtra" = F, "networkD3" = F)
 installed <- installed.packages()
 for (p in 1:length(packages)) {
   package.name <- names(packages[p])
@@ -35,9 +36,9 @@ DAY2_AREA <<- read_csv("./data/day2_area_visitors.csv")
 DAY3_AREA <<- read_csv("./data/day3_area_visitors.csv")
 SENSORS <<- read_csv("./data/sensor location.csv")
 ZONES <<- read_csv("./data/zones.csv")
-FLOOR1 <<- grid::rasterGrob(imager::load.image("./floor plan/floor 1 cleaned.jpg"),
+FLOOR1 <<- grid::rasterGrob(imager::load.image("./floor plan/floor 1.jpg"),
                            width = unit(1,"npc"), height = unit(1,"npc"))
-FLOOR2 <<- grid::rasterGrob(imager::load.image("./floor plan/floor 2 cleaned.jpg"),
+FLOOR2 <<- grid::rasterGrob(imager::load.image("./floor plan/floor 2.jpg"),
                            width = unit(1,"npc"), height = unit(1,"npc"))
 
 SENSORS <<- clean_sensors(SENSORS)
@@ -73,6 +74,7 @@ ADD_SERVER_LOGIC <<- function(new.logic) {
 #source("./app panels/template_panel.R")
 source("./app panels/data_prep.R", local = T)
 source("./app panels/ridgelines.R", local = T)
+source("./app panels/choropleth.R", local = T)
 
 ###############################################################################
 # APP UI
@@ -87,7 +89,7 @@ ui <- shiny::fluidPage(
 ###############################################################################
 server <- function(input, output, session) {
   for (logic in SERVER.LOGIC) {
-    print(logic)
+    #print(logic)
     eval(logic)
   }
 }

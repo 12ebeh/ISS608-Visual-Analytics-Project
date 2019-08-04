@@ -35,6 +35,7 @@ data_prep_settings_ui <- function(namespace) {
       "1 hour" = 60*MINUTE_IN_SECONDS
       )
     ),
+    shinyTree(ns("tree"), checkbox = TRUE),
     actionButton(ns("generate_data"), "Generate Data")
   )
 }
@@ -100,20 +101,33 @@ data_prep_settings <- function(input, output, session) {
   
   output$area_interest_checkboxes <- renderUI({
     area.names <- ZONES$area %>% unique() %>% sort()
-    #print("Hello")
-    #print(INITIAL_AREAS)
     div(
       checkboxGroupInput(ns("area_interest"), "Areas of Interest",
                          choices = area.names, inline = T, selected = INITIAL_AREAS)
     )
   })
   
+  output$tree <- renderTree({ 
+    list(  'I lorem impsum'= list( 
+      'I.1 lorem impsum'   =  structure(list('I.1.1 lorem impsum'='1', 'I.1.2 lorem impsum'='2'),stselected=TRUE),  
+      'I.2 lorem impsum'   =  structure(list('I.2.1 lorem impsum'='3'), stselected=TRUE))) 
+  })
+  
   observeEvent(input$generate_data, {
+    print("Start Generation")
+    
     areas.selected <- input$area_interest
     time.interval <- as.integer(input$time_interval)
+    
+    # Test
+    print("Generating Day 1 Data")
     create_daily_data(DAY1, areas.selected, time.interval, "day1")
+    print("Generating Day 2 Data")
     create_daily_data(DAY2, areas.selected, time.interval, "day2")
+    print("Generating Day 3 Data")
     create_daily_data(DAY3, areas.selected, time.interval, "day3")
+    
+    print("End Generation")
     
     #TODO: create a done notification
   })
