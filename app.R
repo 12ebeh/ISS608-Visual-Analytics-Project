@@ -63,7 +63,7 @@ ADD_SERVER_LOGIC <<- function(new.logic) {
 
 #source("./app panels/template_panel.R")
 source("./app panels/data_prep.R", local = T)
-#source("./app panels/crowd.R", local = T)
+source("./app panels/crowd.R", local = T)
 #source("./app panels/choropleth.R", local = T)
 
 ###############################################################################

@@ -190,7 +190,7 @@ create_daily_ridgeline_plot <- function(day.area, day, areas.include) {
     group_by(area, start_time) %>%
     summarise(visitor_count_index = log10(sum(visitor_count))) %>%
     ggplot(aes(x = start_time, y = as.factor(area))) +
-    ggridges::geom_ridgeline(aes(height = visitor_count_index, group = as.factor(area)), alpha = 0.5) +
+    ggridges::geom_ridgeline(aes(height = visitor_count_index, group = as.factor(area)), size = 0.2, alpha = 0.5) +
     labs(x = "Time in Seconds", y ="Area", title = paste("Area Visitor over Time on Day", day)) %>%
     return()
 }
