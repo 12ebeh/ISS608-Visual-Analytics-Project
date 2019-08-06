@@ -70,6 +70,9 @@ tab.name <- "data"
 data_prep_panel <- tabItem(
   tabName = tab.name,
   fluidRow(
+    box(width = 12, h2("Data Preparation"))
+  ),
+  fluidRow(
     floor_map_ui(PANEL.NAMESPACE)
   ),
   fluidRow(
@@ -168,11 +171,11 @@ data_prep_settings <- function(input, output, session) {
     
     # Test
     print("Generating Day 1 Data")
-    create_daily_data(DAYS[1], areas.selected, time.interval, "day1")
+    create_daily_data(DAYS[[1]], areas.selected, time.interval, "day1")
     print("Generating Day 2 Data")
-    create_daily_data(DAYS[2], areas.selected, time.interval, "day2")
+    create_daily_data(DAYS[[2]], areas.selected, time.interval, "day2")
     print("Generating Day 3 Data")
-    create_daily_data(DAYS[3], areas.selected, time.interval, "day3")
+    create_daily_data(DAYS[[3]], areas.selected, time.interval, "day3")
     
     print("End Generation")
     
