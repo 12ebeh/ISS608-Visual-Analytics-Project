@@ -1,6 +1,46 @@
 INITIAL_AREAS <<- c("main convention", "exhibition hall a", "exhibition hall b", "exhibition hall c", "exhibition hall d", "exhibition hall",
                     "poster area", "room 1", "room 2", "room 3", "room 4", "room 5", "room 6", "restaurant", "rest area")
 
+DATA_SUFFIXES <<- c("SIMPLIFIED"="_simplified", "AREA"="_area_visitors", "MOVEMENT"="_movement", "CONNECTION"="_time_connection")
+
+LOAD_FILES <<- function(files) {
+  ret <- c()
+  for (f in 1:length(files)) {
+    if (file.exists(files[f])) {
+      ret[[f]] <- read_csv(files[f])
+    } else {
+      ret[[f]] <- F
+    }
+  }
+  return(ret)
+}
+
+LOAD_DATA <<- function() {
+  day.list <- c("day1", "day2", "day3")
+  
+  files <- paste("./data/", day.list, ".csv", sep = "")
+  DAYS <<- LOAD_FILES(files)
+  
+  files <- paste("./data/", day.list, DATA_SUFFIXES["SIMPLIFIED"], ".csv", sep = "")
+  DAYS_SIMPLIFIED <<- LOAD_FILES(files)
+  
+  files <- paste("./data/", day.list, DATA_SUFFIXES["AREA"], ".csv", sep = "")
+  DAYS_AREA <<- LOAD_FILES(files)
+  
+  files <- paste("./data/", day.list, DATA_SUFFIXES["MOVEMENT"], ".csv", sep = "")
+  DAYS_MOVEMENT <<- LOAD_FILES(files)
+  
+  files <- paste("./data/", day.list, DATA_SUFFIXES["CONNECTION"], ".csv", sep = "")
+  DAYS_CONNECTION <<- LOAD_FILES(files)
+  
+  SENSORS <<- read_csv("./data/sensor location.csv")
+  ZONES <<- read_csv("./data/zones.csv")
+  FLOOR1 <<- grid::rasterGrob(imager::load.image("./floor plan/floor 1.jpg"),
+                              width = unit(1,"npc"), height = unit(1,"npc"))
+  FLOOR2 <<- grid::rasterGrob(imager::load.image("./floor plan/floor 2.jpg"),
+                              width = unit(1,"npc"), height = unit(1,"npc"))
+}
+
 clean_sensors <- function(df) {
   df <-
     df %>%
@@ -132,16 +172,16 @@ create_daily_data <- function(day.df, areas.include, time.interval, file_prefix)
     write_csv( paste(file_prefix, "simplified.csv", sep = "_"))
   
   day.movement.df <- create_daily_movement(day.simplified.df, areas.include)
-  write_csv(day.movement.df, paste("./data/", file_prefix, "_movement.csv", sep = ""))
+  write_csv(day.movement.df, paste("./data/", file_prefix, DATA_SUFFIXES["MOVEMENT"], ".csv", sep = ""))
     
   day.area.df <- calculate_area_visitors(day.simplified.df, areas.include, time.interval)
   day.area.df %>%
     group_by(area, floor, px, py, start_time, end_time) %>%
     summarise(visitor_count = length(unique(id))) %>%
-    write_csv(paste("./data/", file_prefix, "_area_visitors.csv", sep = ""))
+    write_csv(paste("./data/", file_prefix, DATA_SUFFIXES["AREA"], ".csv", sep = ""))
   
   create_time_connection(day.area.df, time.interval) %>%
-    write_csv(paste("./data/", file_prefix, "_time_connetion.csv", sep = ""))
+    write_csv(paste("./data/", file_prefix, DATA_SUFFIXES["CONNECTION"], ".csv", sep = ""))
 }
 
 create_daily_ridgeline_plot <- function(day.area, day, areas.include) {
