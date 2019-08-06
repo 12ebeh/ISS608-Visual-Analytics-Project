@@ -1,7 +1,7 @@
 ###############################################################################
 # Ridgelines Panel's Module Code
 ###############################################################################
-PANEL.NAMESPACE <- "ridgelines"
+PANEL.NAMESPACE <- "crowd"
 
 ###############################################################################
 # Panel's UI Modules
@@ -22,15 +22,16 @@ ridgelines_ui <- function(namespace) {
 ###############################################################################
 # Add Panel into the list of panels to be displayed
 ###############################################################################
-ridgeline_panel <- tabPanel(
-  title = "Ridgeline Plot",
+tab.name <- "crowd"
+crowd_panel <- tabItem(
+  tabName = tab.name,
   fluidRow(
     h2("Ridgeline Plot")
   ),
   ridgelines_ui(PANEL.NAMESPACE)
 )
 
-ADD_PANEL(ridgeline_panel)
+ADD_PANEL(crowd_panel, panel.label = "Crowd Analysis", panel.name = tab.name)
 
 ###############################################################################
 # Panel's Server Modules
