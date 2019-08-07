@@ -12,7 +12,7 @@ floor_map_ui <- function(namespace) {
   ns <- NS(namespace)
   
   box(
-    title = "Floor Map", width = 12, id = ns("floor_box"),
+    title = "Floor Map", width = 12, id = ns("floor_box"), collapsible = T,
     tagList(
       div(actionButton(ns("toggle_box"), label = "Show/Hide")),
       column(6, plotOutput(ns("floor1"), height = "auto")),
@@ -157,11 +157,11 @@ data_prep_settings <- function(input, output, session) {
     )
   })
   
-  output$tree <- renderTree({ 
-    list(  'I lorem impsum'= list( 
-      'I.1 lorem impsum'   =  structure(list('I.1.1 lorem impsum'='1', 'I.1.2 lorem impsum'='2'),stselected=TRUE),  
-      'I.2 lorem impsum'   =  structure(list('I.2.1 lorem impsum'='3'), stselected=TRUE))) 
-  })
+  #output$tree <- renderTree({ 
+  #  list(  'I lorem impsum'= list( 
+  #    'I.1 lorem impsum'   =  structure(list('I.1.1 lorem impsum'='1', 'I.1.2 lorem impsum'='2'),stselected=TRUE),  
+  #    'I.2 lorem impsum'   =  structure(list('I.2.1 lorem impsum'='3'), stselected=TRUE))) 
+  #})
   
   observeEvent(input$generate_data, {
     print("Start Generation")

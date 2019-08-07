@@ -1,10 +1,11 @@
 ###############################################################################
 # Include Libraries
 ###############################################################################
-packages <- c("tidyverse" = T, "lubridate" = T,
+packages <- c("tidyverse" = T, "tidygraph" = T, "lubridate" = T,
               "shiny" = T, "shinyTree"= T, "shinydashboard" = T, "shinyjs" = T,
               "funModeling" = F, "imager" = F, "grid" = F, "sqldf" = F, "ggridges" = F,
-              "gridExtra" = F, "networkD3" = F)
+              "gridExtra" = F, "networkD3" = F,
+              "igraph" = F, "ggraph" = F, "visNetwork" = T)
 installed <- installed.packages()
 for (p in 1:length(packages)) {
   package.name <- names(packages[p])
@@ -64,6 +65,7 @@ ADD_SERVER_LOGIC <<- function(new.logic) {
 #source("./app panels/template_panel.R")
 source("./app panels/data_prep.R", local = T)
 source("./app panels/crowd.R", local = T)
+source("./app panels/network.R", local = T)
 #source("./app panels/choropleth.R", local = T)
 
 ###############################################################################

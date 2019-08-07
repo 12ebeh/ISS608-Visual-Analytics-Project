@@ -30,6 +30,15 @@ LOAD_DATA <<- function() {
   files <- paste("./data/", day.list, DATA_SUFFIXES["MOVEMENT"], ".csv", sep = "")
   DAYS_MOVEMENT <<- LOAD_FILES(files)
   
+  DAYS_NODE <<- c()
+  for (i in 1:length(DAYS_MOVEMENT)) {
+    day.nodes <- 
+      append(DAYS_MOVEMENT[[i]]$source, DAYS_MOVEMENT[[i]]$target) %>%
+      unique()
+    
+    DAYS_NODE[[i]] <<- ZONES %>% filter(area %in% day.nodes) %>% select(id, area, category)
+  }
+  
   files <- paste("./data/", day.list, DATA_SUFFIXES["CONNECTION"], ".csv", sep = "")
   DAYS_CONNECTION <<- LOAD_FILES(files)
   
