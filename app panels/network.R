@@ -182,7 +182,7 @@ network_server <- substitute({
     return(DAYS_SIMPLIFIED[[rv$day_selected]])
   })
   
-  day_time_settings <- reactive({
+  network_day_time_settings <- reactive({
     df <- data_simplified()
     return(c(min(df$time), max(df$time)))
   })
@@ -205,10 +205,19 @@ network_server <- substitute({
   })
   
   output$network_time_control <- renderUI({
-    slider.settings <- day_time_settings()
-    sliderInput("network_time_range", label = "Time Range",
-                min = slider.settings[1], max = slider.settings[2],
-                value = c(slider.settings[1], slider.settings[2]))
+    slider_settings = network_day_time_settings()
+    print("slider_settings_triggered")
+    print(slider_settings)
+    slider_min <- as.POSIXct(slider_settings[1], origin = "1970-01-01",tz = "GMT")
+    slider_max <- as.POSIXct(slider_settings[2], origin = "1970-01-01",tz = "GMT")
+    
+    tagList(
+      sliderInput("network_time_range", "Time Range", 
+                  min = slider_min, max = slider_max, 
+                  value = c(slider_min, slider_max),
+                  timeFormat = "%H:%M", timezone = "UTC",
+                  animate = animationOptions(interval = 1000, loop = F))
+    )
   })
   
   callModule(network_visualization, PANEL.NAMESPACE, function() return(rv))

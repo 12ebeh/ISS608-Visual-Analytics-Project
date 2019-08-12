@@ -136,11 +136,14 @@ data_prep_settings <- function(input, output, session) {
     
     # Test
     print("Generating Day 1 Data")
-    create_daily_data(DAYS[[1]], areas.selected, time.interval, "day1")
+    #print(paste("day.df", "min time:", min(DAYS[[1]]$time), "max time:", max(DAYS[[1]]$time)))
+    create_daily_data(1, areas.selected, time.interval, "day1")
     print("Generating Day 2 Data")
-    create_daily_data(DAYS[[2]], areas.selected, time.interval, "day2")
+    #print(paste("day.df", "min time:", min(DAYS[[2]]$time), "max time:", max(DAYS[[2]]$time)))
+    create_daily_data(2, areas.selected, time.interval, "day2")
     print("Generating Day 3 Data")
-    create_daily_data(DAYS[[3]], areas.selected, time.interval, "day3")
+    #print(paste("day.df", "min time:", min(DAYS[[3]]$time), "max time:", max(DAYS[[3]]$time)))
+    create_daily_data(3, areas.selected, time.interval, "day3")
     
     print("End Generation")
     

@@ -42,7 +42,7 @@ LOAD_DATA()
 
 SENSORS <<- clean_sensors(SENSORS)
 for (i in 1:length(DAYS)) {
-  DAYS[[i]] <<- clean_days(DAYS[[1]])
+  DAYS[[i]] <<- clean_days(DAYS[[i]])
 }
 
 ###############################################################################

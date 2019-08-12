@@ -140,11 +140,12 @@ crowd_server <- substitute({
   })
   
   area_dataframe <- reactive({
+    print("area_dataframe triggered")
     day.selected <- as.integer(rv$day_selected)
     return(DAYS_AREA[[day.selected]])
   })
   
-  day_time_settings <- reactive({
+  crowd_day_time_settings <- reactive({
     df <- area_dataframe()
     
     return(c(min(df$start_time),
@@ -153,7 +154,10 @@ crowd_server <- substitute({
   })
   
   observeEvent(input$crowd_time_select_slider, {
-    rv$time_selected <- as.integer(input$crowd_time_select_slider)
+    slider_settings = crowd_day_time_settings()
+    time_as_int <- as.integer(input$crowd_time_select_slider)
+    print(slider_settings)
+    rv$time_selected <- as.integer(time_as_int / slider_settings[3]) * slider_settings[3]
     print(paste("time_selected changed:", rv$time_selected))
   })
   
@@ -168,11 +172,17 @@ crowd_server <- substitute({
   })
   
   output$crowd_time_select <- renderUI({
-    slider_settings = day_time_settings()
+    slider_settings = crowd_day_time_settings()
+    print("slider_settings_triggered")
+    print(slider_settings)
+    slider_min <- as.POSIXct(slider_settings[1], origin = "1970-01-01",tz = "GMT")
+    slider_max <- as.POSIXct(slider_settings[2], origin = "1970-01-01",tz = "GMT")
+    
     tagList(
       sliderInput("crowd_time_select_slider", "Time of Day", 
-                  min = slider_settings[1], max = slider_settings[2],
-                  step = slider_settings[3], value = slider_settings[1],
+                  min = slider_min, max = slider_max,
+                  value = slider_min, step = slider_settings[3],
+                  timeFormat = "%H:%M", timezone = "UTC",
                   animate = animationOptions(interval = 1000, loop = F))
     )
   })

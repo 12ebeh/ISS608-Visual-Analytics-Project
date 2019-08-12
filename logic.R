@@ -3,6 +3,12 @@ INITIAL_AREAS <<- c("main convention", "exhibition hall a", "exhibition hall b",
 SUNBURST_EXCLUDE_CATEGORY <- c("common", "toilet", "entrance", "exit", "stairway","service counter")
 
 DATA_SUFFIXES <<- c("SIMPLIFIED"="_simplified", "AREA"="_area_visitors", "MOVEMENT"="_movement", "CONNECTION"="_time_connection")
+DAYS <<- list()
+DAYS_SIMPLIFIED <<- list()
+DAYS_AREA <<- list()
+DAYS_MOVEMENT <<- list()
+DAYS_NODE <<- list()
+DAYS_CONNECTION <<- list()
 
 SELECT_COLORS <- function(cols1, cols2){
   x <- col2rgb(cols1)
@@ -15,14 +21,11 @@ SELECT_COLORS <- function(cols1, cols2){
 }
 
 LOAD_FILES <<- function(files) {
-  ret <- c()
-  for (f in 1:length(files)) {
-    if (file.exists(files[f])) {
-      ret[[f]] <- read_csv(files[f])
-    } else {
-      ret[[f]] <- F
-    }
-  }
+  ret <- list()
+  ret <- lapply(files, read.csv)
+  #for (r in ret) {
+    #print(head(r))
+  #}
   return(ret)
 }
 
@@ -38,7 +41,7 @@ LOAD_DATA <<- function() {
   
   files <- paste("./data/", day.list, ".csv", sep = "")
   DAYS <<- LOAD_FILES(files)
-  
+
   files <- paste("./data/", day.list, DATA_SUFFIXES["SIMPLIFIED"], ".csv", sep = "")
   DAYS_SIMPLIFIED <<- LOAD_FILES(files)
   
@@ -48,7 +51,7 @@ LOAD_DATA <<- function() {
   files <- paste("./data/", day.list, DATA_SUFFIXES["MOVEMENT"], ".csv", sep = "")
   DAYS_MOVEMENT <<- LOAD_FILES(files)
   
-  DAYS_NODE <<- c()
+  #DAYS_NODE <<- list()
   for (i in 1:length(DAYS_MOVEMENT)) {
     day.nodes <- 
       append(DAYS_MOVEMENT[[i]]$source, DAYS_MOVEMENT[[i]]$target) %>%
@@ -179,23 +182,27 @@ create_time_connection <- function(day.area.df, time.interval) {
     return()
 }
 
-create_daily_data <- function(day.df, areas.include, time.interval, file_prefix) {
+create_daily_data <- function(day.index, areas.include, time.interval, file_prefix) {
+  day.df <- DAYS[[day.index]]
+  print(paste("day.df", "min time:", min(day.df$time), "max time:", max(day.df$time)))
   day.simplified.df <-
     day.df %>%
     inner_join(SENSORS, by = "sid") %>%
     simplify_day()
   
+  print(paste("day.simplified.df", "min time:", min(day.simplified.df$time), "max time:", max(day.simplified.df$time)))
   day.simplified.df %>%
     group_by(id, area_index, area) %>%
     summarise(time = min(time),
               time_end = max(time_end),
               time_stayed = sum(time_stayed)) %>%
-    write_csv( paste(file_prefix, "simplified.csv", sep = "_"))
+    write_csv( paste("./data/", file_prefix, "_simplified.csv", sep = ""))
   
   day.movement.df <- create_daily_movement(day.simplified.df, areas.include)
   write_csv(day.movement.df, paste("./data/", file_prefix, DATA_SUFFIXES["MOVEMENT"], ".csv", sep = ""))
     
   day.area.df <- calculate_area_visitors(day.simplified.df, areas.include, time.interval)
+  print(paste("day.area.df", "min time:", min(day.area.df$start_time), "max time:", max(day.area.df$start_time)))
   day.area.df %>%
     group_by(area, floor, px, py, start_time, end_time) %>%
     summarise(visitor_count = length(unique(id))) %>%
