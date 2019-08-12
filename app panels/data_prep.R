@@ -14,9 +14,10 @@ floor_map_ui <- function(namespace) {
   box(
     title = "Floor Map", width = 12, id = ns("floor_box"), collapsible = T,
     tagList(
-      div(actionButton(ns("toggle_box"), label = "Show/Hide")),
-      column(6, plotOutput(ns("floor1"), height = "auto")),
-      column(6, plotOutput(ns("floor2"), height = "auto"))
+      #div(actionButton(ns("toggle_box"), label = "Show/Hide")),
+      #plotlyOutput(ns("floormap"), height = "auto")
+      column(6, plotlyOutput(ns("floormap1"), height = "auto")),
+      column(6, plotlyOutput(ns("floormap2"), height = "auto"))
     )
   )
 }
@@ -99,51 +100,21 @@ ADD_PANEL(data_prep_panel, panel.label = "Data Preparation", panel.name = tab.na
 floor_map <- function(input, output, session) {
   ns <- session$ns
   
-  rv <- reactiveValues(show = T, plot_height = 400)
-  
   sensor_location <- reactive({
     return(SENSORS)
   })
   
-  plot_height <- reactive({
-    if (rv$show) {
-      return(400)
-    } else {
-      return(1)
-    }
+  output$floormap1 <- renderPlotly({
+    sensor_location() %>%
+      filter(floor == 1) %>%
+      create_floor_map_plot(1, ~floor, 1, 2)
   })
   
-  observeEvent(input$toggle_box, {
-    print("Toggle floor_box clicked")
-    rv$show = !rv$show
+  output$floormap2 <- renderPlotly({
+    sensor_location() %>%
+      filter(floor == 2) %>%
+      create_floor_map_plot(2, ~floor, 1, 2)
   })
-  
-  output$floor1 <- renderPlot({
-    if (rv$show) {
-      sensor_location() %>%
-        filter(floor == 1) %>%
-        ggplot(aes(x = px, y = py)) +
-        annotation_custom(FLOOR1,
-                          xmin=-0.5, xmax=29.5, ymin=-0.5, ymax=15.5) + # Shiny can handle the loading of background images
-        geom_tile(aes(fill = area), alpha = 0.5) +
-        scale_x_continuous(breaks = seq(0, 30, 1)) +
-        scale_y_continuous(breaks = seq(0, 20, 1))
-    }
-  }, height = function() plot_height())
-  
-  output$floor2 <- renderPlot({
-    if (rv$show) {
-      sensor_location() %>%
-        filter(floor == 2) %>%
-        ggplot(aes(x = px, y = py)) +
-        annotation_custom(FLOOR2,
-                          xmin=-0.5, xmax=29.5, ymin=-0.5, ymax=15.5) + # Shiny can handle the loading of background images
-        geom_tile(aes(fill = area), alpha = 0.5) +
-        scale_x_continuous(breaks = seq(0, 30, 1)) +
-        scale_y_continuous(breaks = seq(0, 20, 1)) +
-        coord_cartesian(xlim = c(0,30))
-    }
-  }, height = function() plot_height())
 }
 
 data_prep_settings <- function(input, output, session) {
@@ -156,12 +127,6 @@ data_prep_settings <- function(input, output, session) {
                          choices = area.names, inline = T, selected = INITIAL_AREAS)
     )
   })
-  
-  #output$tree <- renderTree({ 
-  #  list(  'I lorem impsum'= list( 
-  #    'I.1 lorem impsum'   =  structure(list('I.1.1 lorem impsum'='1', 'I.1.2 lorem impsum'='2'),stselected=TRUE),  
-  #    'I.2 lorem impsum'   =  structure(list('I.2.1 lorem impsum'='3'), stselected=TRUE))) 
-  #})
   
   observeEvent(input$generate_data, {
     print("Start Generation")

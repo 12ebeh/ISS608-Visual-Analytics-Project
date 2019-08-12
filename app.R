@@ -2,10 +2,10 @@
 # Include Libraries
 ###############################################################################
 packages <- c("tidyverse" = T, "tidygraph" = T, "lubridate" = T,
-              "shiny" = T, "shinyTree"= T, "shinydashboard" = T, "shinyjs" = T,
+              "shiny" = T, "shinyTree"= T, "shinydashboard" = T, "shinyjs" = T, "plotly" = T, "visNetwork" = T,
               "funModeling" = F, "imager" = F, "grid" = F, "sqldf" = F, "ggridges" = F,
               "gridExtra" = F, "networkD3" = F,
-              "igraph" = F, "ggraph" = F, "visNetwork" = T)
+              "igraph" = F, "ggraph" = F)
 installed <- installed.packages()
 for (p in 1:length(packages)) {
   package.name <- names(packages[p])

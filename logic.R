@@ -203,3 +203,35 @@ create_daily_ridgeline_plot <- function(day.area, day, areas.include) {
     labs(x = "Time in Seconds", y ="Area", title = paste("Area Visitor over Time on Day", day)) %>%
     return()
 }
+
+create_floor_map_plot <- function(df, floor, zvar.eq, zmin.val, zmax.val) {
+  img.url <- "https://raw.githubusercontent.com/12ebeh/ISS608-Visual-Analytics-Project/develop/floor%20plan/floor%201.jpg"
+  if (floor == 2) {
+    img.url <- "https://raw.githubusercontent.com/12ebeh/ISS608-Visual-Analytics-Project/develop/floor%20plan/floor%202.jpg"
+  }
+  df %>%
+  plot_ly(x = ~px, y = ~py, z = zvar.eq, type = "heatmap",
+          autocolorscale=FALSE, zmin=zmin.val, zmax=zmax.val,
+          colorscale = list(c(0, "rgb(222,235,247)"), c(0.5, "rgb(158,202,225)"), c(1, "rgb(49,130,189)"))) %>%
+    layout(
+      title = paste("Floor", floor), autosize = F,
+      xaxis = list(
+        range = c(0, 29), 
+        autorange = F
+      ), 
+      yaxis = list(
+        range = c(0, 15),
+        autorange = F
+      ),
+      images = list(
+        list(
+          source = img.url,
+          xref = "x", yref = "y",
+          xanchor = "left", yanchor = "bottom",
+          x= -0.5, y= -0.5,
+          sizex = 30, sizey = 16,
+          opacity = 0.5, sizing = "stretch"
+        )
+      )
+    )
+}
