@@ -3,7 +3,7 @@
 ###############################################################################
 packages <- c("tidyverse" = T, "tidygraph" = T, "lubridate" = T,
               "shiny" = T, "shinyTree"= T, "shinydashboard" = T, "shinyjs" = T, "plotly" = T, 
-              "igraph" = T, "visNetwork" = T,
+              "igraph" = T, "visNetwork" = T, "sunburstR" = T, "RColorBrewer" = T, "viridis" = T,
               "funModeling" = F, "imager" = F, "grid" = F, "sqldf" = F, "ggridges" = F,
               "gridExtra" = F, "networkD3" = F, "ggraph" = F)
 installed <- installed.packages()
@@ -12,11 +12,23 @@ for (p in 1:length(packages)) {
   if (!(package.name %in% installed)) {
     install.packages(package.name)
   }
+}
+
+for (p in 1:length(packages)) {
+  package.name <- names(packages[p])
   if (packages[p] == T) {
     print(paste("Loading", package.name))
     library(package.name, character.only = T)
   }
 }
+
+if (!("chorddiag" %in% installed)) {
+  if (!("devtools" %in% installed)) {
+    install.packages("devtools")
+  }
+  devtools::install_github("mattflor/chorddiag")
+}
+library(chorddiag)
 
 ###############################################################################
 # External Source Files

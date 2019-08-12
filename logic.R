@@ -1,7 +1,18 @@
 INITIAL_AREAS <<- c("main convention", "exhibition hall a", "exhibition hall b", "exhibition hall c", "exhibition hall d", "exhibition hall",
                     "poster area", "room 1", "room 2", "room 3", "room 4", "room 5", "room 6", "restaurant", "rest area")
+SUNBURST_EXCLUDE_CATEGORY <- c("common", "toilet", "entrance", "exit", "stairway","service counter")
 
 DATA_SUFFIXES <<- c("SIMPLIFIED"="_simplified", "AREA"="_area_visitors", "MOVEMENT"="_movement", "CONNECTION"="_time_connection")
+
+SELECT_COLORS <- function(cols1, cols2){
+  x <- col2rgb(cols1)
+  y <- col2rgb(cols2)
+  sim <- which.min(colSums(abs(x[,ncol(x)] - y)))
+  message(paste("Your palette will be", sim, "colors shorter."))
+  cols.x <- apply(x, 2, function(temp) rgb(t(temp)/255))
+  cols.y <- apply(y[,sim:ncol(y)], 2, function(temp) rgb(t(temp)/255))
+  return(c(cols.x,cols.y))
+}
 
 LOAD_FILES <<- function(files) {
   ret <- c()
@@ -272,8 +283,8 @@ create_location_nodes <- function(location_network_edges) {
 }
 
 create_location_graph <- function(location_network_edges, location_network_nodes) {
-  print(location_network_edges)
-  print(location_network_nodes)
+  #print(location_network_edges)
+  #print(location_network_nodes)
   
   location_graph <- graph_from_data_frame(location_network_edges, directed=TRUE, vertices=location_network_nodes)
   V(location_graph)$indegree <- strength(location_graph, vids = V(location_graph), mode = "in", loops = TRUE, weights = V(location_graph)$weight)
@@ -286,4 +297,46 @@ create_location_graph <- function(location_network_edges, location_network_nodes
   V(location_graph)$betweenness <- centr_betw(location_graph, directed = TRUE, nobigint = TRUE, normalized=TRUE)$res #weights = NULL,
   
   return(location_graph)
+}
+
+create_sunburst_data <- function(df.simplified, areas.include, start_time, end_time) {
+  #zones <- ZONES %>% filter(area %in% areas.include)
+  
+  df.simplified %>%
+    filter(area %in% areas.include,
+           !(time_end < start_time | time > end_time)) %>%
+    left_join(select(ZONES, -id), by = "area") %>%
+    select(id, area_index, category) %>%
+    filter(!category %in% SUNBURST_EXCLUDE_CATEGORY) %>%
+    arrange(id) %>%
+    group_by(id) %>%
+    mutate(previous_category = lag(category)) %>%
+    mutate(previous_category = replace_na(previous_category, 'None')) %>%
+    filter(category != previous_category) %>%
+    mutate(category = str_replace_all(category, '-', ' ')) %>%
+    mutate(area_index = row_number()) %>%
+    ungroup() %>%
+    select(id, area_index, category) %>%
+    spread(key=area_index, val=category, fill = "") %>%
+    select(-id) %>%
+    unite(path, everything()) %>%
+    mutate(path = str_replace_all(path, '[_]+$', '')) %>%
+    mutate(path = str_replace_all(path, '_', '-')) %>%
+    group_by(path) %>%
+    count() %>%
+    return()
+}
+
+create_chord_data <- function(df.simplified, areas.include, start_time, end_time) {
+  df.simplified %>%
+    filter(area %in% areas.include,
+           !(time_end < start_time | time > end_time)) %>%
+    mutate(prev_area = lag(area)) %>%
+    filter(!is.na(prev_area)) %>%
+    rename(source = prev_area, target = area) %>%
+    count(source, target) %>%
+    tidygraph::as_tbl_graph() %>%
+    igraph::as_adjacency_matrix(attr = "n") %>%
+    as.matrix() %>%
+    return()
 }
