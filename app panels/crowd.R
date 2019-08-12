@@ -169,7 +169,6 @@ crowd_server <- substitute({
   
   output$crowd_time_select <- renderUI({
     slider_settings = day_time_settings()
-    print(slider_settings)
     tagList(
       sliderInput("crowd_time_select_slider", "Time of Day", 
                   min = slider_settings[1], max = slider_settings[2],

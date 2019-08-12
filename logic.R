@@ -16,6 +16,13 @@ LOAD_FILES <<- function(files) {
 }
 
 LOAD_DATA <<- function() {
+  SENSORS <<- read_csv("./data/sensor location.csv")
+  ZONES <<- read_csv("./data/zones.csv")
+  FLOOR1 <<- grid::rasterGrob(imager::load.image("./floor plan/floor 1.jpg"),
+                              width = unit(1,"npc"), height = unit(1,"npc"))
+  FLOOR2 <<- grid::rasterGrob(imager::load.image("./floor plan/floor 2.jpg"),
+                              width = unit(1,"npc"), height = unit(1,"npc"))
+  
   day.list <- c("day1", "day2", "day3")
   
   files <- paste("./data/", day.list, ".csv", sep = "")
@@ -41,13 +48,6 @@ LOAD_DATA <<- function() {
   
   files <- paste("./data/", day.list, DATA_SUFFIXES["CONNECTION"], ".csv", sep = "")
   DAYS_CONNECTION <<- LOAD_FILES(files)
-  
-  SENSORS <<- read_csv("./data/sensor location.csv")
-  ZONES <<- read_csv("./data/zones.csv")
-  FLOOR1 <<- grid::rasterGrob(imager::load.image("./floor plan/floor 1.jpg"),
-                              width = unit(1,"npc"), height = unit(1,"npc"))
-  FLOOR2 <<- grid::rasterGrob(imager::load.image("./floor plan/floor 2.jpg"),
-                              width = unit(1,"npc"), height = unit(1,"npc"))
 }
 
 clean_sensors <- function(df) {
@@ -127,9 +127,10 @@ calculate_area_visitors <- function(simplified.df, areas.include, time.interval)
     return()
 }
 
-create_daily_movement <- function(simplified.df, areas.include) {
+create_daily_movement <- function(simplified.df, areas.include, start_time = 0, end_time = 86400) {
   simplified.df %>%
-    filter(area %in% areas.include) %>%
+    filter(area %in% areas.include,
+           !(time_end < start_time | time > end_time)) %>%
     group_by(id, area_index, area) %>%
     summarise(time = min(time),
               time_end = max(time_end),
@@ -234,4 +235,55 @@ create_floor_map_plot <- function(df, floor, zvar.eq, zmin.val, zmax.val) {
         )
       )
     )
+}
+
+create_location_edges <- function(day_movement) {
+  day_movement %>%
+    select(source, target, movement_count) %>%
+    left_join(select(ZONES, category, area), by = c("source"="area")) %>%
+    rename(from_category = category, from=source) %>%
+    left_join(select(ZONES, category, area), by = c("target"="area")) %>%
+    rename(to_category = category, to=target) %>%
+    rename(weight = movement_count) %>%
+    return()
+}
+
+create_location_nodes <- function(location_network_edges) {
+  location_network_nodes_1 <-
+    location_network_edges %>%
+    select(from, from_category, weight) %>%
+    group_by(from, from_category) %>%
+    mutate(weight = sum(weight)) %>%
+    ungroup() %>%
+    distinct(from, from_category, weight) %>%
+    rename(id = from, group = from_category, out_weight = weight)
+  
+  location_network_nodes_2 <-
+    location_network_edges %>%
+    select(to, to_category, weight) %>%
+    group_by(to, to_category) %>%
+    mutate(weight = sum(weight))  %>%
+    ungroup() %>%
+    distinct(to, to_category, weight) %>%
+    rename(id = to, group = to_category, in_weight = weight)
+  
+  full_join(location_network_nodes_1, location_network_nodes_2, by=c("id","group")) %>%
+    return()
+}
+
+create_location_graph <- function(location_network_edges, location_network_nodes) {
+  print(location_network_edges)
+  print(location_network_nodes)
+  
+  location_graph <- graph_from_data_frame(location_network_edges, directed=TRUE, vertices=location_network_nodes)
+  V(location_graph)$indegree <- strength(location_graph, vids = V(location_graph), mode = "in", loops = TRUE, weights = V(location_graph)$weight)
+  V(location_graph)$outdegree <- strength(location_graph, vids = V(location_graph), mode = "out", loops = TRUE, weights = V(location_graph)$weight)
+  total_indegree <- sum(V(location_graph)$in_weight)
+  total_outdegree <- sum(V(location_graph)$out_weight)
+  V(location_graph)$indegree_norm <- V(location_graph)$indegree/total_indegree*100
+  V(location_graph)$outdegree_norm <- V(location_graph)$outdegree/total_outdegree*100
+  V(location_graph)$closeness <- closeness(location_graph, vids = V(location_graph), mode = "in", weights = NULL, normalized = TRUE)
+  V(location_graph)$betweenness <- centr_betw(location_graph, directed = TRUE, nobigint = TRUE, normalized=TRUE)$res #weights = NULL,
+  
+  return(location_graph)
 }

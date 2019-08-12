@@ -1,33 +1,33 @@
-id,area,category,floor,start_px,end_px,start_py,end_py
-1,entrance 0-2,entrance,1,0,0,2,2
-2,entrance 2-0,entrance,1,2,2,0,0
-3,entrance 4-0,entrance,1,4,4,0,0
-4,exit 5-0,exit,1,5,5,0,0
-5,entrance 7-0,entrance,1,7,7,0,0
-6,exit 15-0,exit,1,15,15,0,0
-7,exit 17-0,exit,1,17,17,0,0
-8,exit 19-15,exit,1,19,19,15,15
-9,reception,reception,1,2,5,2,4
-10,main convention,main convention,1,19,28,4,13
-11,exhibition hall a,exhibition hall,1,1,5,12,13
-12,exhibition hall b,exhibition hall,1,1,5,10,11
-13,exhibition hall c,exhibition hall,1,1,5,8,9
-14,exhibition hall d,exhibition hall,1,1,5,6,7
-15,exhibition hall,exhibition hall,1,15,18,4,13
-16,toilet 1,toilet,1,10,11,10,11
-17,toilet 2,toilet,1,27,28,0,1
-18,poster area,poster area,1,7,8,6,12
-19,service counter,service counter,1,19,20,0,1
-20,north stairway (1st floor),stairway,1,10,11,14,14
-21,south stairway (1st floor),stairway,1,10,11,1,1
-22,room 1,room,1,10,11,6,9
-23,room 2,room,1,10,11,4,5
-24,room 3,room,1,21,24,0,1
-25,room 4,room,1,25,26,0,1
-26,room 5,room,2,1,5,4,5
-27,room 6,room,2,10,11,8,9
-28,toilet 3,toilet,2,10,11,10,11
-29,north stairway (2nd floor),stairway,2,10,11,14,14
-30,south stairway (2nd floor),stairway,2,10,11,1,1
-31,restaurant,restaurant,2,1,5,6,13
-32,rest area,rest area,2,0,5,0,2
+id,area,category,floor,start_px,end_px,start_py,end_py,x,y
+1,entrance 0-2,entrance,1,0,0,2,2,0.5,-2.5
+2,entrance 2-0,entrance,1,2,2,0,0,2.5,-0.5
+3,entrance 4-0,entrance,1,4,4,0,0,4.5,-0.5
+4,exit 5-0,exit,1,5,5,0,0,5.5,-0.5
+5,entrance 7-0,entrance,1,7,7,0,0,7.5,-0.5
+6,exit 15-0,exit,1,15,15,0,0,15.5,-0.5
+7,exit 17-0,exit,1,17,17,0,0,17.5,-0.5
+8,exit 19-15,exit,1,19,19,15,15,19.5,-0.5
+9,reception,reception,1,2,5,2,4,4,-3
+10,main convention,main convention,1,19,28,4,13,24,-9
+11,exhibition hall a,sub convention,1,1,5,12,13,3.5,-13
+12,exhibition hall b,sub convention,1,1,5,10,11,3.5,-11
+13,exhibition hall c,sub convention,1,1,5,8,9,3.5,-9
+14,exhibition hall d,sub convention,1,1,5,6,7,3.5,-7
+15,exhibition hall,exhibition hall,1,15,18,4,13,17,-9
+16,toilet 1,toilet,1,10,11,10,11,11,-11
+17,toilet 2,toilet,1,27,28,0,1,28,-1
+18,poster area,poster area,1,7,8,6,12,8,-9.5
+19,service counter,service counter,1,19,20,0,1,20,-1
+20,north stairway (1st floor),stairway,1,10,11,14,14,11,-14.5
+21,south stairway (1st floor),stairway,1,10,11,1,1,11,-1.5
+22,room 1,room,1,10,11,6,9,11,-8
+23,room 2,room,1,10,11,4,5,11,-5
+24,room 3,room,1,21,24,0,1,23,-1
+25,room 4,room,1,25,26,0,1,26,-1
+26,room 5,room,2,1,5,4,5,53.5,-5
+27,room 6,room,2,10,11,8,9,61,-9
+28,toilet 3,toilet,2,10,11,10,11,61,-11
+29,north stairway (2nd floor),stairway,2,10,11,14,14,61,-14.5
+30,south stairway (2nd floor),stairway,2,10,11,1,1,61,-1.5
+31,restaurant,restaurant,2,1,5,6,13,53.5,-10
+32,rest area,rest area,2,0,5,0,2,53,-1.5
