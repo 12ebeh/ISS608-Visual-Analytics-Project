@@ -1,21 +1,34 @@
 ###############################################################################
 # Include Libraries
 ###############################################################################
-packages <- c("tidyverse" = T, "lubridate" = T,
-              "shiny" = T, "shinyTree"= T, "shinydashboard" = T, "shinyjs" = T,
+packages <- c("tidyverse" = T, "tidygraph" = T, "lubridate" = T,
+              "shiny" = T, "shinyTree"= T, "shinydashboard" = T, "shinyjs" = T, "plotly" = T, 
+              "igraph" = T, "visNetwork" = T, "sunburstR" = T, "RColorBrewer" = T, "viridis" = T,
               "funModeling" = F, "imager" = F, "grid" = F, "sqldf" = F, "ggridges" = F,
-              "gridExtra" = F, "networkD3" = F)
+              "gridExtra" = F, "networkD3" = F, "ggraph" = F)
 installed <- installed.packages()
 for (p in 1:length(packages)) {
   package.name <- names(packages[p])
   if (!(package.name %in% installed)) {
     install.packages(package.name)
   }
+}
+
+for (p in 1:length(packages)) {
+  package.name <- names(packages[p])
   if (packages[p] == T) {
     print(paste("Loading", package.name))
     library(package.name, character.only = T)
   }
 }
+
+if (!("chorddiag" %in% installed)) {
+  if (!("devtools" %in% installed)) {
+    install.packages("devtools")
+  }
+  devtools::install_github("mattflor/chorddiag")
+}
+library(chorddiag)
 
 ###############################################################################
 # External Source Files
@@ -29,7 +42,7 @@ LOAD_DATA()
 
 SENSORS <<- clean_sensors(SENSORS)
 for (i in 1:length(DAYS)) {
-  DAYS[[i]] <<- clean_days(DAYS[[1]])
+  DAYS[[i]] <<- clean_days(DAYS[[i]])
 }
 
 ###############################################################################
@@ -64,6 +77,7 @@ ADD_SERVER_LOGIC <<- function(new.logic) {
 #source("./app panels/template_panel.R")
 source("./app panels/data_prep.R", local = T)
 source("./app panels/crowd.R", local = T)
+source("./app panels/network.R", local = T)
 #source("./app panels/choropleth.R", local = T)
 
 ###############################################################################

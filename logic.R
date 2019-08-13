@@ -1,26 +1,47 @@
 INITIAL_AREAS <<- c("main convention", "exhibition hall a", "exhibition hall b", "exhibition hall c", "exhibition hall d", "exhibition hall",
                     "poster area", "room 1", "room 2", "room 3", "room 4", "room 5", "room 6", "restaurant", "rest area")
+SUNBURST_EXCLUDE_CATEGORY <- c("common", "toilet", "entrance", "exit", "stairway","service counter")
 
 DATA_SUFFIXES <<- c("SIMPLIFIED"="_simplified", "AREA"="_area_visitors", "MOVEMENT"="_movement", "CONNECTION"="_time_connection")
+DAYS <<- list()
+DAYS_SIMPLIFIED <<- list()
+DAYS_AREA <<- list()
+DAYS_MOVEMENT <<- list()
+DAYS_NODE <<- list()
+DAYS_CONNECTION <<- list()
+
+SELECT_COLORS <- function(cols1, cols2){
+  x <- col2rgb(cols1)
+  y <- col2rgb(cols2)
+  sim <- which.min(colSums(abs(x[,ncol(x)] - y)))
+  message(paste("Your palette will be", sim, "colors shorter."))
+  cols.x <- apply(x, 2, function(temp) rgb(t(temp)/255))
+  cols.y <- apply(y[,sim:ncol(y)], 2, function(temp) rgb(t(temp)/255))
+  return(c(cols.x,cols.y))
+}
 
 LOAD_FILES <<- function(files) {
-  ret <- c()
-  for (f in 1:length(files)) {
-    if (file.exists(files[f])) {
-      ret[[f]] <- read_csv(files[f])
-    } else {
-      ret[[f]] <- F
-    }
-  }
+  ret <- list()
+  ret <- lapply(files, read.csv)
+  #for (r in ret) {
+    #print(head(r))
+  #}
   return(ret)
 }
 
 LOAD_DATA <<- function() {
+  SENSORS <<- read_csv("./data/sensor location.csv")
+  ZONES <<- read_csv("./data/zones.csv")
+  FLOOR1 <<- grid::rasterGrob(imager::load.image("./floor plan/floor 1.jpg"),
+                              width = unit(1,"npc"), height = unit(1,"npc"))
+  FLOOR2 <<- grid::rasterGrob(imager::load.image("./floor plan/floor 2.jpg"),
+                              width = unit(1,"npc"), height = unit(1,"npc"))
+  
   day.list <- c("day1", "day2", "day3")
   
   files <- paste("./data/", day.list, ".csv", sep = "")
   DAYS <<- LOAD_FILES(files)
-  
+
   files <- paste("./data/", day.list, DATA_SUFFIXES["SIMPLIFIED"], ".csv", sep = "")
   DAYS_SIMPLIFIED <<- LOAD_FILES(files)
   
@@ -30,15 +51,17 @@ LOAD_DATA <<- function() {
   files <- paste("./data/", day.list, DATA_SUFFIXES["MOVEMENT"], ".csv", sep = "")
   DAYS_MOVEMENT <<- LOAD_FILES(files)
   
+  #DAYS_NODE <<- list()
+  for (i in 1:length(DAYS_MOVEMENT)) {
+    day.nodes <- 
+      append(DAYS_MOVEMENT[[i]]$source, DAYS_MOVEMENT[[i]]$target) %>%
+      unique()
+    
+    DAYS_NODE[[i]] <<- ZONES %>% filter(area %in% day.nodes) %>% select(id, area, category)
+  }
+  
   files <- paste("./data/", day.list, DATA_SUFFIXES["CONNECTION"], ".csv", sep = "")
   DAYS_CONNECTION <<- LOAD_FILES(files)
-  
-  SENSORS <<- read_csv("./data/sensor location.csv")
-  ZONES <<- read_csv("./data/zones.csv")
-  FLOOR1 <<- grid::rasterGrob(imager::load.image("./floor plan/floor 1.jpg"),
-                              width = unit(1,"npc"), height = unit(1,"npc"))
-  FLOOR2 <<- grid::rasterGrob(imager::load.image("./floor plan/floor 2.jpg"),
-                              width = unit(1,"npc"), height = unit(1,"npc"))
 }
 
 clean_sensors <- function(df) {
@@ -118,9 +141,10 @@ calculate_area_visitors <- function(simplified.df, areas.include, time.interval)
     return()
 }
 
-create_daily_movement <- function(simplified.df, areas.include) {
+create_daily_movement <- function(simplified.df, areas.include, start_time = 0, end_time = 86400) {
   simplified.df %>%
-    filter(area %in% areas.include) %>%
+    filter(area %in% areas.include,
+           !(time_end < start_time | time > end_time)) %>%
     group_by(id, area_index, area) %>%
     summarise(time = min(time),
               time_end = max(time_end),
@@ -158,23 +182,27 @@ create_time_connection <- function(day.area.df, time.interval) {
     return()
 }
 
-create_daily_data <- function(day.df, areas.include, time.interval, file_prefix) {
+create_daily_data <- function(day.index, areas.include, time.interval, file_prefix) {
+  day.df <- DAYS[[day.index]]
+  print(paste("day.df", "min time:", min(day.df$time), "max time:", max(day.df$time)))
   day.simplified.df <-
     day.df %>%
     inner_join(SENSORS, by = "sid") %>%
     simplify_day()
   
+  print(paste("day.simplified.df", "min time:", min(day.simplified.df$time), "max time:", max(day.simplified.df$time)))
   day.simplified.df %>%
     group_by(id, area_index, area) %>%
     summarise(time = min(time),
               time_end = max(time_end),
               time_stayed = sum(time_stayed)) %>%
-    write_csv( paste(file_prefix, "simplified.csv", sep = "_"))
+    write_csv( paste("./data/", file_prefix, "_simplified.csv", sep = ""))
   
   day.movement.df <- create_daily_movement(day.simplified.df, areas.include)
   write_csv(day.movement.df, paste("./data/", file_prefix, DATA_SUFFIXES["MOVEMENT"], ".csv", sep = ""))
     
   day.area.df <- calculate_area_visitors(day.simplified.df, areas.include, time.interval)
+  print(paste("day.area.df", "min time:", min(day.area.df$start_time), "max time:", max(day.area.df$start_time)))
   day.area.df %>%
     group_by(area, floor, px, py, start_time, end_time) %>%
     summarise(visitor_count = length(unique(id))) %>%
@@ -192,5 +220,130 @@ create_daily_ridgeline_plot <- function(day.area, day, areas.include) {
     ggplot(aes(x = start_time, y = as.factor(area))) +
     ggridges::geom_ridgeline(aes(height = visitor_count_index, group = as.factor(area)), size = 0.2, alpha = 0.5) +
     labs(x = "Time in Seconds", y ="Area", title = paste("Area Visitor over Time on Day", day)) %>%
+    return()
+}
+
+create_floor_map_plot <- function(df, floor, zvar.eq, zmin.val, zmax.val) {
+  img.url <- "https://raw.githubusercontent.com/12ebeh/ISS608-Visual-Analytics-Project/develop/floor%20plan/floor%201.jpg"
+  if (floor == 2) {
+    img.url <- "https://raw.githubusercontent.com/12ebeh/ISS608-Visual-Analytics-Project/develop/floor%20plan/floor%202.jpg"
+  }
+  df %>%
+  plot_ly(x = ~px, y = ~py, z = zvar.eq, type = "heatmap",
+          autocolorscale=FALSE, zmin=zmin.val, zmax=zmax.val,
+          colorscale = list(c(0, "rgb(222,235,247)"), c(0.5, "rgb(158,202,225)"), c(1, "rgb(49,130,189)"))) %>%
+    layout(
+      title = paste("Floor", floor), autosize = F,
+      xaxis = list(
+        range = c(0, 29), 
+        autorange = F
+      ), 
+      yaxis = list(
+        range = c(0, 15),
+        autorange = F
+      ),
+      images = list(
+        list(
+          source = img.url,
+          xref = "x", yref = "y",
+          xanchor = "left", yanchor = "bottom",
+          x= -0.5, y= -0.5,
+          sizex = 30, sizey = 16,
+          opacity = 0.5, sizing = "stretch"
+        )
+      )
+    )
+}
+
+create_location_edges <- function(day_movement) {
+  day_movement %>%
+    select(source, target, movement_count) %>%
+    left_join(select(ZONES, category, area), by = c("source"="area")) %>%
+    rename(from_category = category, from=source) %>%
+    left_join(select(ZONES, category, area), by = c("target"="area")) %>%
+    rename(to_category = category, to=target) %>%
+    rename(weight = movement_count) %>%
+    return()
+}
+
+create_location_nodes <- function(location_network_edges) {
+  location_network_nodes_1 <-
+    location_network_edges %>%
+    select(from, from_category, weight) %>%
+    group_by(from, from_category) %>%
+    mutate(weight = sum(weight)) %>%
+    ungroup() %>%
+    distinct(from, from_category, weight) %>%
+    rename(id = from, group = from_category, out_weight = weight)
+  
+  location_network_nodes_2 <-
+    location_network_edges %>%
+    select(to, to_category, weight) %>%
+    group_by(to, to_category) %>%
+    mutate(weight = sum(weight))  %>%
+    ungroup() %>%
+    distinct(to, to_category, weight) %>%
+    rename(id = to, group = to_category, in_weight = weight)
+  
+  full_join(location_network_nodes_1, location_network_nodes_2, by=c("id","group")) %>%
+    return()
+}
+
+create_location_graph <- function(location_network_edges, location_network_nodes) {
+  #print(location_network_edges)
+  #print(location_network_nodes)
+  
+  location_graph <- graph_from_data_frame(location_network_edges, directed=TRUE, vertices=location_network_nodes)
+  V(location_graph)$indegree <- strength(location_graph, vids = V(location_graph), mode = "in", loops = TRUE, weights = V(location_graph)$weight)
+  V(location_graph)$outdegree <- strength(location_graph, vids = V(location_graph), mode = "out", loops = TRUE, weights = V(location_graph)$weight)
+  total_indegree <- sum(V(location_graph)$in_weight)
+  total_outdegree <- sum(V(location_graph)$out_weight)
+  V(location_graph)$indegree_norm <- V(location_graph)$indegree/total_indegree*100
+  V(location_graph)$outdegree_norm <- V(location_graph)$outdegree/total_outdegree*100
+  V(location_graph)$closeness <- closeness(location_graph, vids = V(location_graph), mode = "in", weights = NULL, normalized = TRUE)
+  V(location_graph)$betweenness <- centr_betw(location_graph, directed = TRUE, nobigint = TRUE, normalized=TRUE)$res #weights = NULL,
+  
+  return(location_graph)
+}
+
+create_sunburst_data <- function(df.simplified, areas.include, start_time, end_time) {
+  #zones <- ZONES %>% filter(area %in% areas.include)
+  
+  df.simplified %>%
+    filter(area %in% areas.include,
+           !(time_end < start_time | time > end_time)) %>%
+    left_join(select(ZONES, -id), by = "area") %>%
+    select(id, area_index, category) %>%
+    filter(!category %in% SUNBURST_EXCLUDE_CATEGORY) %>%
+    arrange(id) %>%
+    group_by(id) %>%
+    mutate(previous_category = lag(category)) %>%
+    mutate(previous_category = replace_na(previous_category, 'None')) %>%
+    filter(category != previous_category) %>%
+    mutate(category = str_replace_all(category, '-', ' ')) %>%
+    mutate(area_index = row_number()) %>%
+    ungroup() %>%
+    select(id, area_index, category) %>%
+    spread(key=area_index, val=category, fill = "") %>%
+    select(-id) %>%
+    unite(path, everything()) %>%
+    mutate(path = str_replace_all(path, '[_]+$', '')) %>%
+    mutate(path = str_replace_all(path, '_', '-')) %>%
+    group_by(path) %>%
+    count() %>%
+    return()
+}
+
+create_chord_data <- function(df.simplified, areas.include, start_time, end_time) {
+  df.simplified %>%
+    filter(area %in% areas.include,
+           !(time_end < start_time | time > end_time)) %>%
+    mutate(prev_area = lag(area)) %>%
+    filter(!is.na(prev_area)) %>%
+    rename(source = prev_area, target = area) %>%
+    count(source, target) %>%
+    tidygraph::as_tbl_graph() %>%
+    igraph::as_adjacency_matrix(attr = "n") %>%
+    as.matrix() %>%
     return()
 }

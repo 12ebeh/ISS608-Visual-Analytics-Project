@@ -4,3 +4,5 @@
 /.Rproj.user/*
 .Rproj.user
 /data/*
+/prototype
+/prototype/*
