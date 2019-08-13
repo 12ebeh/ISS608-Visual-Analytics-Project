@@ -215,11 +215,14 @@ create_daily_data <- function(day.index, areas.include, time.interval, file_pref
 create_daily_ridgeline_plot <- function(day.area, day, areas.include) {
   day.area %>%
     filter(area %in% areas.include) %>%
-    group_by(area, start_time) %>%
+    left_join(select(ZONES, area, category), by="area") %>%
+    mutate(start_time = as.POSIXct(start_time, origin = "1970-01-01",tz = "GMT")) %>%
+    group_by(area, category, start_time) %>%
     summarise(visitor_count_index = log10(sum(visitor_count))) %>%
     ggplot(aes(x = start_time, y = as.factor(area))) +
-    ggridges::geom_ridgeline(aes(height = visitor_count_index, group = as.factor(area)), size = 0.2, alpha = 0.5) +
-    labs(x = "Time in Seconds", y ="Area", title = paste("Area Visitor over Time on Day", day)) %>%
+    ggridges::geom_ridgeline(aes(height = visitor_count_index, group = as.factor(area), fill=category), size = 0.2, alpha = 0.5) +
+    scale_x_datetime(date_labels = "%H:%M") +
+    labs(x = "Time of Day", y ="Area", title = paste("Area Visitor over Time on Day", day)) %>%
     return()
 }
 
