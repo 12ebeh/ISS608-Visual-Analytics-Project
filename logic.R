@@ -224,9 +224,9 @@ create_daily_ridgeline_plot <- function(day.area, day, areas.include) {
 }
 
 create_floor_map_plot <- function(df, floor, zvar.eq, zmin.val, zmax.val) {
-  img.url <- "https://raw.githubusercontent.com/12ebeh/ISS608-Visual-Analytics-Project/develop/floor%20plan/floor%201.jpg"
+  img.url <- "https://raw.githubusercontent.com/12ebeh/ISS608-Visual-Analytics-Project/master/floor%20plan/floor%201.jpeg"
   if (floor == 2) {
-    img.url <- "https://raw.githubusercontent.com/12ebeh/ISS608-Visual-Analytics-Project/develop/floor%20plan/floor%202.jpg"
+    img.url <- "https://raw.githubusercontent.com/12ebeh/ISS608-Visual-Analytics-Project/master/floor%20plan/floor%202.jpeg"
   }
   df %>%
   plot_ly(x = ~px, y = ~py, z = zvar.eq, type = "heatmap",
