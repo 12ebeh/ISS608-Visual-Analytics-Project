@@ -38,9 +38,9 @@ ridgelines_ui <- function(namespace) {
 tab.name <- "crowd"
 crowd_panel <- tabItem(
   tabName = tab.name,
-  fluidRow(
-    box(width = 12, h2("Crowd Analysis"))
-  ),
+  #fluidRow(
+    h3("Crowd Analysis"),
+  #),
   
   fluidRow(
     choropleth_ui(PANEL.NAMESPACE)
@@ -81,9 +81,12 @@ choropleth <- function (input, output, session, parent_rv) {
   
   time_dataframe <- reactive({
     prv <- parent_rv()
+
     area_dataframe() %>%
       filter(start_time == prv$time_selected) %>%
       select(floor, px, py, visitor_count) %>%
+      right_join(SENSORS, by = c("floor", "px", "py")) %>%
+      replace_na(list(visitor_count = 0)) %>%
       return()
   })
   
@@ -95,18 +98,14 @@ choropleth <- function (input, output, session, parent_rv) {
   })
   
   output$floor1 <- renderPlotly({
-    sensor_location() %>%
+    time_dataframe() %>%
       filter(floor == 1) %>%
-      left_join(time_dataframe(), by = c("floor", "px", "py")) %>%
-      mutate(visitor_count = ifelse(is.na(visitor_count), 0, visitor_count)) %>%
       create_floor_map_plot(1, ~visitor_count, 0, zmax())
   })
   
   output$floor2 <- renderPlotly({
-    sensor_location() %>%
+    time_dataframe() %>%
       filter(floor == 2) %>%
-      left_join(time_dataframe(), by = c("floor", "px", "py")) %>%
-      mutate(visitor_count = ifelse(is.na(visitor_count), 0, visitor_count)) %>%
       create_floor_map_plot(2, ~visitor_count, 0, zmax())
   })
 }
@@ -156,25 +155,25 @@ crowd_server <- substitute({
   observeEvent(input$crowd_time_select_slider, {
     slider_settings = crowd_day_time_settings()
     time_as_int <- as.integer(input$crowd_time_select_slider)
-    print(slider_settings)
+    #print(slider_settings)
     rv$time_selected <- as.integer(time_as_int / slider_settings[3]) * slider_settings[3]
-    print(paste("time_selected changed:", rv$time_selected))
+    #print(paste("time_selected changed:", rv$time_selected))
   })
   
   observeEvent(input$crowd_day_select, {
     rv$day_selected <- as.integer(input$crowd_day_select)
-    print(paste("day_selected changed:", rv$day_selected))
+    #print(paste("day_selected changed:", rv$day_selected))
   })
   
   observeEvent(input$crowd_areas_select, {
     rv$areas_selected <- input$crowd_areas_select
-    print(paste("areas_selected changed:", rv$crowd_areas_select))
+    #print(paste("areas_selected changed:", rv$crowd_areas_select))
   })
   
   output$crowd_time_select <- renderUI({
     slider_settings = crowd_day_time_settings()
-    print("slider_settings_triggered")
-    print(slider_settings)
+    #print("slider_settings_triggered")
+    #print(slider_settings)
     slider_min <- as.POSIXct(slider_settings[1], origin = "1970-01-01",tz = "GMT")
     slider_max <- as.POSIXct(slider_settings[2], origin = "1970-01-01",tz = "GMT")
     

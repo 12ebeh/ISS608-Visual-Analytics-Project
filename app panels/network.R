@@ -36,9 +36,9 @@ chord_and_sunburst_ui <- function(namespace) {
 tab.name <- "network"
 network_panel <- tabItem(
   tabName = tab.name,
-  fluidRow(
-    box(width = 12, h2("Network Analysis"))
-  ),
+  #fluidRow(
+    h2("Network Analysis"),
+  #),
   fluidRow(
     box(width = 12, title = "Network Controls",
       column(2, selectInput("network_day_select", label = "Select Day",
@@ -50,8 +50,8 @@ network_panel <- tabItem(
   ),
   fluidRow(
     network_visualization_ui(PANEL.NAMESPACE)
-  ),
-  chord_and_sunburst_ui(paste(PANEL.NAMESPACE,"2", sep = "_"))
+  )#,
+  #chord_and_sunburst_ui(paste(PANEL.NAMESPACE,"2", sep = "_"))
 )
 
 # call this function to add the tab panel
@@ -75,13 +75,13 @@ network_visualization <- function(input, output, session, prv) {
   
   day_movement <- reactive({
     prv <- prv()
-    areas <- data_area() %>% .$area %>% unique()
-    create_daily_movement(data_simplified(), areas, prv$start_time, prv$end_time) %>%
-      return()
+    #areas <- data_area() %>% .$area %>% unique()
+    #create_daily_movement(data_simplified(), areas, prv$start_time, prv$end_time) %>%
+    return(DAYS_MOVEMENT[[prv$day_selected]])
   })
   
   output$network_vis_plot <- renderVisNetwork({
-    df <- day_movement()
+    df <- day_movement() %>% group_by(source, target) %>% summarise_at(vars(movement_count), sum)
     edges <- create_location_edges(df)
     nodes <- create_location_nodes(edges)
     location_graph <- create_location_graph(edges, nodes)
@@ -215,13 +215,12 @@ network_server <- substitute({
       sliderInput("network_time_range", "Time Range", 
                   min = slider_min, max = slider_max, 
                   value = c(slider_min, slider_max),
-                  timeFormat = "%H:%M", timezone = "UTC",
-                  animate = animationOptions(interval = 1000, loop = F))
+                  timeFormat = "%H:%M", timezone = "UTC")
     )
   })
   
   callModule(network_visualization, PANEL.NAMESPACE, function() return(rv))
-  callModule(chord_and_sunburst, paste(PANEL.NAMESPACE, "2", sep = "_"), function() return(rv))
+  #callModule(chord_and_sunburst, paste(PANEL.NAMESPACE, "2", sep = "_"), function() return(rv))
 })
 
 ADD_SERVER_LOGIC(network_server)

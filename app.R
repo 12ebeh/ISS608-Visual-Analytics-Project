@@ -78,7 +78,7 @@ ADD_SERVER_LOGIC <<- function(new.logic) {
 source("./app panels/data_prep.R", local = T)
 source("./app panels/crowd.R", local = T)
 source("./app panels/network.R", local = T)
-#source("./app panels/choropleth.R", local = T)
+source("./app panels/movement.R", local = T)
 
 ###############################################################################
 # APP UI
