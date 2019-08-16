@@ -1,14 +1,15 @@
-INITIAL_AREAS <<- c("main convention", "exhibition hall a", "exhibition hall b", "exhibition hall c", "exhibition hall d", "exhibition hall",
+INITIAL_AREAS <<- c("main convention", "sub convention a", "sub convention b", "sub convention c", "sub convention d", "exhibition hall",
                     "poster area", "room 1", "room 2", "room 3", "room 4", "room 5", "room 6", "restaurant", "rest area")
 SUNBURST_EXCLUDE_CATEGORY <- c("common", "toilet", "entrance", "exit", "stairway","service counter")
 
-DATA_SUFFIXES <<- c("SIMPLIFIED"="_simplified", "AREA"="_area_visitors", "MOVEMENT"="_movement", "CONNECTION"="_time_connection")
+DATA_SUFFIXES <<- c("SIMPLIFIED"="_simplified", "AREA"="_area_visitors", "MOVEMENT"="_movement", "CONNECTION"="_time_connection", "SUNBURST"="_sunburst")
 DAYS <<- list()
 DAYS_SIMPLIFIED <<- list()
 DAYS_AREA <<- list()
 DAYS_MOVEMENT <<- list()
-DAYS_NODE <<- list()
-DAYS_CONNECTION <<- list()
+#DAYS_NODE <<- list()
+#DAYS_CONNECTION <<- list()
+DAYS_SUNBURST <<- list()
 
 SELECT_COLORS <- function(cols1, cols2){
   x <- col2rgb(cols1)
@@ -20,9 +21,16 @@ SELECT_COLORS <- function(cols1, cols2){
   return(c(cols.x,cols.y))
 }
 
+SAFE_LOAD <<- function(f) {
+  if (file.exists(f)) {
+    return(read_csv(f))
+  }
+  return(F)
+}
+
 LOAD_FILES <<- function(files) {
   ret <- list()
-  ret <- lapply(files, read.csv)
+  ret <- lapply(files, SAFE_LOAD)
   #for (r in ret) {
     #print(head(r))
   #}
@@ -32,10 +40,6 @@ LOAD_FILES <<- function(files) {
 LOAD_DATA <<- function() {
   SENSORS <<- read_csv("./data/sensor location.csv")
   ZONES <<- read_csv("./data/zones.csv")
-  FLOOR1 <<- grid::rasterGrob(imager::load.image("./floor plan/floor 1.jpg"),
-                              width = unit(1,"npc"), height = unit(1,"npc"))
-  FLOOR2 <<- grid::rasterGrob(imager::load.image("./floor plan/floor 2.jpg"),
-                              width = unit(1,"npc"), height = unit(1,"npc"))
   
   day.list <- c("day1", "day2", "day3")
   
@@ -51,17 +55,30 @@ LOAD_DATA <<- function() {
   files <- paste("./data/", day.list, DATA_SUFFIXES["MOVEMENT"], ".csv", sep = "")
   DAYS_MOVEMENT <<- LOAD_FILES(files)
   
-  #DAYS_NODE <<- list()
-  for (i in 1:length(DAYS_MOVEMENT)) {
-    day.nodes <- 
-      append(DAYS_MOVEMENT[[i]]$source, DAYS_MOVEMENT[[i]]$target) %>%
-      unique()
-    
-    DAYS_NODE[[i]] <<- ZONES %>% filter(area %in% day.nodes) %>% select(id, area, category)
-  }
+  files <- paste("./data/", day.list, DATA_SUFFIXES["SUNBURST"], ".csv", sep = "")
+  DAYS_SUNBURST <<- LOAD_FILES(files)
   
-  files <- paste("./data/", day.list, DATA_SUFFIXES["CONNECTION"], ".csv", sep = "")
-  DAYS_CONNECTION <<- LOAD_FILES(files)
+  #DAYS_NODE <<- list()
+  #for (i in 1:length(DAYS_MOVEMENT)) {
+    #day.nodes <- 
+      #append(DAYS_MOVEMENT[[i]]$source, DAYS_MOVEMENT[[i]]$target) %>%
+      #unique()
+    
+    #DAYS_NODE[[i]] <<- ZONES %>% filter(area %in% day.nodes) %>% select(id, area, category)
+  #}
+  
+  #files <- paste("./data/", day.list, DATA_SUFFIXES["CONNECTION"], ".csv", sep = "")
+  #DAYS_CONNECTION <<- LOAD_FILES(files)
+}
+
+CLEAR_DATA <- function() {
+  DAYS <<- list()
+  DAYS_SIMPLIFIED <<- list()
+  DAYS_AREA <<- list()
+  DAYS_MOVEMENT <<- list()
+  DAYS_SUNBURST <<- list()
+  SENSORS <<- NULL
+  ZONES <<- NULL
 }
 
 clean_sensors <- function(df) {
@@ -115,11 +132,17 @@ simplify_day <- function(df) {
     return()
 }
 
+generate_timeslots <- function(start_time, end_time, time.interval) {
+  timeslots <-
+    data.frame(start_time = seq(start_time, end_time, time.interval)) %>%
+    mutate(end_time = start_time + time.interval - 1) %>%
+    return()
+}
+
 calculate_area_visitors <- function(simplified.df, areas.include, time.interval) {
-  timeslots <- data.frame(start_time = seq(as.integer(min(simplified.df$time)/time.interval) * time.interval,
-                                           as.integer(max(simplified.df$time_end)/time.interval) * time.interval,
-                                           time.interval))
-  timeslots$end_time <- lead(timeslots$start_time) - 1
+  start_time = as.integer(min(simplified.df$time)/time.interval) * time.interval
+  end_time = (as.integer(max(simplified.df$time_end)/time.interval) + 1) * time.interval
+  timeslots <- generate_timeslots(start_time, end_time, time.interval)
   timeslots$join <- 1
   timeslots <-
     SENSORS %>%
@@ -141,10 +164,14 @@ calculate_area_visitors <- function(simplified.df, areas.include, time.interval)
     return()
 }
 
-create_daily_movement <- function(simplified.df, areas.include, start_time = 0, end_time = 86400) {
-  simplified.df %>%
-    filter(area %in% areas.include,
-           !(time_end < start_time | time > end_time)) %>%
+create_daily_movement <- function(simplified.df, areas.include, time.interval) {
+  start_time = as.integer(min(simplified.df$time)/time.interval) * time.interval
+  end_time = (as.integer(max(simplified.df$time_end)/time.interval) + 1) * time.interval
+  timeslots <- generate_timeslots(start_time, end_time, time.interval)
+  
+  simplified.df <-
+    simplified.df %>%
+    filter(area %in% areas.include) %>%
     group_by(id, area_index, area) %>%
     summarise(time = min(time),
               time_end = max(time_end),
@@ -153,13 +180,35 @@ create_daily_movement <- function(simplified.df, areas.include, start_time = 0, 
     mutate(previous_area = lag(area)) %>%
     filter(area != previous_area) %>%
     mutate(area_count = 1,
-           area_index = cumsum(area_count)) %>%
-    select(id, area_index, previous_area, area) %>%
-    group_by(previous_area, area) %>%
-    summarise(movement_count = n(),
-              unique_visitors = length(unique(id))) %>%
+           area_index = cumsum(area_count))
+  
+  sqldf::sqldf("
+  SELECT * FROM `timeslots` LEFT JOIN `simplified.df` 
+  ON start_time <= time AND end_time >= time
+  ") %>%
+    drop_na() %>%
+    group_by(start_time, end_time, previous_area, area) %>%
+    summarise(movement_count = n()) %>%
+              #unique_visitors = length(unique(id))) %>%
     ungroup() %>%
     rename(source = previous_area, target = area) %>%
+    return()
+}
+
+create_sunburst_data <- function(df.simplified, areas.include) {
+  df.simplified %>%
+    filter(area %in% areas.include) %>%
+    left_join(select(ZONES, -id), by = "area") %>%
+    select(id, area_index, category, time, time_end) %>%
+    filter(!category %in% SUNBURST_EXCLUDE_CATEGORY) %>%
+    group_by(id) %>%
+    arrange(id, time) %>%
+    mutate(previous_category = lag(category)) %>%
+    mutate(previous_category = replace_na(previous_category, 'None')) %>%
+    filter(category != previous_category) %>%
+    mutate(category = str_replace_all(category, '-', ' ')) %>%
+    mutate(area_index = row_number()) %>%
+    ungroup() %>%
     return()
 }
 
@@ -198,7 +247,7 @@ create_daily_data <- function(day.index, areas.include, time.interval, file_pref
               time_stayed = sum(time_stayed)) %>%
     write_csv( paste("./data/", file_prefix, "_simplified.csv", sep = ""))
   
-  day.movement.df <- create_daily_movement(day.simplified.df, areas.include)
+  day.movement.df <- create_daily_movement(day.simplified.df, areas.include, time.interval)
   write_csv(day.movement.df, paste("./data/", file_prefix, DATA_SUFFIXES["MOVEMENT"], ".csv", sep = ""))
     
   day.area.df <- calculate_area_visitors(day.simplified.df, areas.include, time.interval)
@@ -208,8 +257,11 @@ create_daily_data <- function(day.index, areas.include, time.interval, file_pref
     summarise(visitor_count = length(unique(id))) %>%
     write_csv(paste("./data/", file_prefix, DATA_SUFFIXES["AREA"], ".csv", sep = ""))
   
-  create_time_connection(day.area.df, time.interval) %>%
-    write_csv(paste("./data/", file_prefix, DATA_SUFFIXES["CONNECTION"], ".csv", sep = ""))
+  create_sunburst_data(day.simplified.df, areas.include) %>%
+    write_csv(paste("./data/", file_prefix, DATA_SUFFIXES["SUNBURST"], ".csv", sep = ""))
+  
+  #create_time_connection(day.area.df, time.interval) %>%
+    #write_csv(paste("./data/", file_prefix, DATA_SUFFIXES["CONNECTION"], ".csv", sep = ""))
 }
 
 create_daily_ridgeline_plot <- function(day.area, day, areas.include) {
@@ -217,26 +269,29 @@ create_daily_ridgeline_plot <- function(day.area, day, areas.include) {
     filter(area %in% areas.include) %>%
     left_join(select(ZONES, area, category), by="area") %>%
     mutate(start_time = as.POSIXct(start_time, origin = "1970-01-01",tz = "GMT")) %>%
-    group_by(area, category, start_time) %>%
-    summarise(visitor_count_index = log10(sum(visitor_count))) %>%
+    group_by(floor, area, category, start_time) %>%
+    summarise(visitor_count_index = log10(sum(visitor_count) + 1)) %>%
     ggplot(aes(x = start_time, y = as.factor(area))) +
     ggridges::geom_ridgeline(aes(height = visitor_count_index, group = as.factor(area), fill=category), size = 0.2, alpha = 0.5) +
+    #facet_wrap(~ floor, ncol = 1) +
     scale_x_datetime(date_labels = "%H:%M") +
     labs(x = "Time of Day", y ="Area", title = paste("Area Visitor over Time on Day", day)) %>%
     return()
 }
 
-create_floor_map_plot <- function(df, floor, zvar.eq, zmin.val, zmax.val) {
+create_floor_map_plot <- function(df, floor, zvar.eq, zmin.val, zmax.val, show.legend = T) {
   img.url <- "https://raw.githubusercontent.com/12ebeh/ISS608-Visual-Analytics-Project/master/floor%20plan/floor%201.jpeg"
   if (floor == 2) {
     img.url <- "https://raw.githubusercontent.com/12ebeh/ISS608-Visual-Analytics-Project/master/floor%20plan/floor%202.jpeg"
   }
   df %>%
-  plot_ly(x = ~px, y = ~py, z = zvar.eq, type = "heatmap",
+    mutate(`have sensor` = 1) %>%
+    plot_ly(x = ~px, y = ~py, z = zvar.eq, type = "heatmap", showscale = show.legend,
           autocolorscale=FALSE, zmin=zmin.val, zmax=zmax.val,
-          colorscale = list(c(0, "rgb(222,235,247)"), c(0.5, "rgb(158,202,225)"), c(1, "rgb(49,130,189)"))) %>%
+          #colorscale = list(c(0, "rgb(254,230,206)"), c(0.5, "rgb(253,174,107)"), c(1, "rgb(230,85,13)"))) %>%
+          colorscale = list(c(0, "rgb(234,220,196)"), c(0.5, "rgb(223,164,97)"), c(1, "rgb(200,75,3)"))) %>%
     layout(
-      title = paste("Floor", floor), autosize = F,
+      title = paste("Floor", floor), autosize = T,
       xaxis = list(
         range = c(0, 29), 
         autorange = F
@@ -309,28 +364,17 @@ create_location_graph <- function(location_network_edges, location_network_nodes
   return(location_graph)
 }
 
-create_sunburst_data <- function(df.simplified, areas.include, start_time, end_time) {
+create_sunburst_data_wide <- function(df.sunburst, start_time, end_time) {
   #zones <- ZONES %>% filter(area %in% areas.include)
   
-  df.simplified %>%
-    filter(area %in% areas.include,
-           !(time_end < start_time | time > end_time)) %>%
-    left_join(select(ZONES, -id), by = "area") %>%
-    select(id, area_index, category) %>%
-    filter(!category %in% SUNBURST_EXCLUDE_CATEGORY) %>%
-    arrange(id) %>%
-    group_by(id) %>%
-    mutate(previous_category = lag(category)) %>%
-    mutate(previous_category = replace_na(previous_category, 'None')) %>%
-    filter(category != previous_category) %>%
-    mutate(category = str_replace_all(category, '-', ' ')) %>%
-    mutate(area_index = row_number()) %>%
-    ungroup() %>%
+  df.sunburst %>%
+    filter(!(time_end < start_time | time > end_time)) %>%
     select(id, area_index, category) %>%
     spread(key=area_index, val=category, fill = "") %>%
     select(-id) %>%
     unite(path, everything()) %>%
     mutate(path = str_replace_all(path, '[_]+$', '')) %>%
+    mutate(path = str_replace_all(path, '^[_]+', '')) %>%
     mutate(path = str_replace_all(path, '_', '-')) %>%
     group_by(path) %>%
     count() %>%

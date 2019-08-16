@@ -1,0 +1,20 @@
+Hawker center
+1. Background & Objectives
+2. Methodology
+data collection & preparation -> exploratory analysis -> geo-weighted regression model -> app building
+3. Tools and Packages
+Package and usage
+4. App Demonstration
+5. Results and Interpretation
+6. Future Work
+
+
+R Shiny App
+- Separate ridgeline plot with the choropleth map
+- speed up the animation -> interval of 1 min, can change to other time intervals?
+- Aggregated data using a wider time range
+- Rename the diagram, i.e. Sunburst Diagram -> Path Analysis
+- Re-size the network to fit interactive bars and network diagram in one page
+
+Tidy up the data, use case to illustrate to the audience what is the betweenness, closeness
+

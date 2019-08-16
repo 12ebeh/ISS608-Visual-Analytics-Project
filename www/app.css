@@ -1,0 +1,21 @@
+.sidebar-menu li > a > span {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.box-title {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.control-label {
+	font-size: 16px;
+}
+
+.irs-grid-text {
+	font-size: 16px;
+}
+
+span, p {
+	font-size: 16px;
+}

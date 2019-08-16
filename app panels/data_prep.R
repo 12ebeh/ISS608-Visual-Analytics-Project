@@ -41,7 +41,6 @@ data_prep_settings_ui <- function(namespace) {
       "1 hour" = 60*MINUTE_IN_SECONDS
       )
     ),
-    #shinyTree(ns("tree"), checkbox = TRUE),
     actionButton(ns("generate_data"), "Generate Data"),
     actionButton(ns("reload_data"), "Reload Data")
   )
@@ -70,9 +69,9 @@ data_table_3days_ui <- function(namespace, title) {
 tab.name <- "data"
 data_prep_panel <- tabItem(
   tabName = tab.name,
-  fluidRow(
-    box(width = 12, h2("Data Preparation"))
-  ),
+  #fluidRow(
+    h3("Data Preparation"),
+  #),
   fluidRow(
     floor_map_ui(PANEL.NAMESPACE)
   ),
@@ -87,7 +86,7 @@ data_prep_panel <- tabItem(
     data_table_3days_ui(paste(PANEL.NAMESPACE, "SIMPLIFIED", sep = "_"), "Simplified Visitors Data"),
     data_table_3days_ui(paste(PANEL.NAMESPACE, "AREA", sep = "_"), "Area Crowd Data"),
     data_table_3days_ui(paste(PANEL.NAMESPACE, "MOVEMENT", sep = "_"), "Movement Data"),
-    data_table_3days_ui(paste(PANEL.NAMESPACE, "CONNECTION", sep = "_"), "Visitors' Connection Data")
+    data_table_3days_ui(paste(PANEL.NAMESPACE, "SUNBURST", sep = "_"), "Sunburst Data")
   )
 )
 
@@ -107,13 +106,13 @@ floor_map <- function(input, output, session) {
   output$floormap1 <- renderPlotly({
     sensor_location() %>%
       filter(floor == 1) %>%
-      create_floor_map_plot(1, ~floor, 1, 2)
+      create_floor_map_plot(1, ~`have sensor`, 1, 1, F)
   })
   
   output$floormap2 <- renderPlotly({
     sensor_location() %>%
       filter(floor == 2) %>%
-      create_floor_map_plot(2, ~floor, 1, 2)
+      create_floor_map_plot(2, ~`have sensor`, 1, 1, F)
   })
 }
 
@@ -151,6 +150,7 @@ data_prep_settings <- function(input, output, session) {
   })
   
   observeEvent(input$reload_data, {
+    CLEAR_DATA()
     LOAD_DATA()
   })
 }
@@ -202,7 +202,7 @@ data_prep_server <- substitute({
   callModule(data_table_3days, paste(PANEL.NAMESPACE, "SIMPLIFIED", sep = "_"), DAYS_SIMPLIFIED)
   callModule(data_table_3days, paste(PANEL.NAMESPACE, "AREA", sep = "_"), DAYS_AREA)
   callModule(data_table_3days, paste(PANEL.NAMESPACE, "MOVEMENT", sep = "_"), DAYS_MOVEMENT)
-  callModule(data_table_3days, paste(PANEL.NAMESPACE, "CONNECTION", sep = "_"), DAYS_CONNECTION)
+  callModule(data_table_3days, paste(PANEL.NAMESPACE, "SUNBURST", sep = "_"), DAYS_SUNBURST)
 })
 
 # call this function to add your server logic
