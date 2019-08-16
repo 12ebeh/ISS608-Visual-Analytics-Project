@@ -1,0 +1,1492 @@
+start_time,end_time,source,target,movement_count
+27000,27299,south stairway (1st floor),south stairway (2nd floor),2
+27000,27299,south stairway (2nd floor),room 6,1
+27300,27599,south stairway (1st floor),south stairway (2nd floor),6
+27300,27599,south stairway (2nd floor),room 6,3
+27600,27899,south stairway (1st floor),south stairway (2nd floor),4
+27600,27899,south stairway (2nd floor),room 6,8
+27900,28199,south stairway (1st floor),south stairway (2nd floor),8
+27900,28199,south stairway (2nd floor),room 6,7
+28200,28499,south stairway (1st floor),south stairway (2nd floor),2
+28200,28499,south stairway (2nd floor),room 6,3
+28500,28799,south stairway (1st floor),south stairway (2nd floor),6
+28500,28799,south stairway (2nd floor),room 6,4
+28800,29099,exhibition hall,main convention,1
+28800,29099,room 6,south stairway (2nd floor),32
+28800,29099,south stairway (1st floor),exhibition hall,1
+28800,29099,south stairway (1st floor),north stairway (1st floor),1
+28800,29099,south stairway (1st floor),south stairway (2nd floor),6
+28800,29099,south stairway (2nd floor),room 6,8
+28800,29099,south stairway (2nd floor),south stairway (1st floor),32
+29100,29399,exhibition hall,main convention,1
+29100,29399,room 6,south stairway (2nd floor),3
+29100,29399,south stairway (1st floor),exhibition hall,1
+29100,29399,south stairway (1st floor),south stairway (2nd floor),3
+29100,29399,south stairway (2nd floor),room 6,2
+29100,29399,south stairway (2nd floor),south stairway (1st floor),3
+29400,29699,south stairway (2nd floor),room 6,1
+29700,29999,south stairway (1st floor),south stairway (2nd floor),1
+30000,30299,south stairway (1st floor),south stairway (2nd floor),2
+30000,30299,south stairway (2nd floor),room 6,3
+30300,30599,south stairway (1st floor),south stairway (2nd floor),4
+30300,30599,south stairway (2nd floor),room 6,3
+30600,30899,poster area,toilet 1,2
+30600,30899,room 6,south stairway (2nd floor),3
+30600,30899,south stairway (1st floor),south stairway (2nd floor),1
+30600,30899,south stairway (2nd floor),room 6,1
+30600,30899,south stairway (2nd floor),south stairway (1st floor),3
+30900,31199,poster area,exhibition hall,1
+30900,31199,poster area,south stairway (1st floor),1
+30900,31199,poster area,toilet 1,29
+30900,31199,room 6,south stairway (2nd floor),1
+30900,31199,south stairway (1st floor),exhibition hall,2
+30900,31199,south stairway (1st floor),south stairway (2nd floor),24
+30900,31199,south stairway (2nd floor),room 6,2
+30900,31199,south stairway (2nd floor),south stairway (1st floor),2
+30900,31199,south stairway (2nd floor),toilet 3,8
+30900,31199,toilet 1,exhibition hall,6
+30900,31199,toilet 1,poster area,10
+30900,31199,toilet 1,south stairway (1st floor),2
+30900,31199,toilet 2,south stairway (1st floor),1
+30900,31199,toilet 3,south stairway (2nd floor),1
+31200,31499,poster area,exhibition hall,9
+31200,31499,poster area,toilet 1,50
+31200,31499,room 6,room 5,2
+31200,31499,south stairway (1st floor),exhibition hall,7
+31200,31499,south stairway (1st floor),poster area,1
+31200,31499,south stairway (1st floor),south stairway (2nd floor),34
+31200,31499,south stairway (2nd floor),room 6,1
+31200,31499,south stairway (2nd floor),south stairway (1st floor),10
+31200,31499,south stairway (2nd floor),toilet 3,15
+31200,31499,toilet 1,exhibition hall,15
+31200,31499,toilet 1,poster area,20
+31200,31499,toilet 1,south stairway (1st floor),6
+31200,31499,toilet 2,exhibition hall,2
+31200,31499,toilet 2,south stairway (1st floor),1
+31200,31499,toilet 3,south stairway (2nd floor),10
+31500,31799,poster area,exhibition hall,9
+31500,31799,poster area,south stairway (1st floor),1
+31500,31799,poster area,toilet 1,62
+31500,31799,south stairway (1st floor),exhibition hall,8
+31500,31799,south stairway (1st floor),poster area,1
+31500,31799,south stairway (1st floor),south stairway (2nd floor),37
+31500,31799,south stairway (1st floor),toilet 2,2
+31500,31799,south stairway (2nd floor),room 6,5
+31500,31799,south stairway (2nd floor),south stairway (1st floor),12
+31500,31799,south stairway (2nd floor),toilet 3,9
+31500,31799,toilet 1,exhibition hall,19
+31500,31799,toilet 1,poster area,20
+31500,31799,toilet 1,south stairway (1st floor),7
+31500,31799,toilet 2,exhibition hall,3
+31500,31799,toilet 2,poster area,3
+31500,31799,toilet 2,south stairway (1st floor),3
+31500,31799,toilet 3,south stairway (2nd floor),12
+31800,32099,poster area,exhibition hall,7
+31800,32099,poster area,south stairway (1st floor),2
+31800,32099,poster area,toilet 1,49
+31800,32099,room 6,south stairway (2nd floor),11
+31800,32099,south stairway (1st floor),exhibition hall,10
+31800,32099,south stairway (1st floor),main convention,6
+31800,32099,south stairway (1st floor),poster area,2
+31800,32099,south stairway (1st floor),room 4,1
+31800,32099,south stairway (1st floor),south stairway (2nd floor),54
+31800,32099,south stairway (2nd floor),room 6,2
+31800,32099,south stairway (2nd floor),south stairway (1st floor),19
+31800,32099,south stairway (2nd floor),toilet 3,19
+31800,32099,toilet 1,exhibition hall,30
+31800,32099,toilet 1,poster area,23
+31800,32099,toilet 1,south stairway (1st floor),14
+31800,32099,toilet 2,exhibition hall,8
+31800,32099,toilet 2,poster area,5
+31800,32099,toilet 2,south stairway (1st floor),2
+31800,32099,toilet 3,south stairway (2nd floor),10
+32100,32399,poster area,exhibition hall,3
+32100,32399,poster area,main convention,1
+32100,32399,poster area,south stairway (1st floor),1
+32100,32399,poster area,toilet 1,56
+32100,32399,room 6,south stairway (2nd floor),2
+32100,32399,south stairway (1st floor),exhibition hall,25
+32100,32399,south stairway (1st floor),main convention,1
+32100,32399,south stairway (1st floor),poster area,2
+32100,32399,south stairway (1st floor),south stairway (2nd floor),47
+32100,32399,south stairway (1st floor),toilet 2,3
+32100,32399,south stairway (2nd floor),room 6,3
+32100,32399,south stairway (2nd floor),south stairway (1st floor),26
+32100,32399,south stairway (2nd floor),toilet 3,26
+32100,32399,toilet 1,exhibition hall,29
+32100,32399,toilet 1,main convention,1
+32100,32399,toilet 1,poster area,18
+32100,32399,toilet 1,south stairway (1st floor),8
+32100,32399,toilet 1,toilet 2,2
+32100,32399,toilet 2,exhibition hall,11
+32100,32399,toilet 2,poster area,1
+32100,32399,toilet 2,south stairway (1st floor),4
+32100,32399,toilet 3,south stairway (2nd floor),22
+32400,32699,exhibition hall,main convention,274
+32400,32699,exhibition hall,south stairway (1st floor),46
+32400,32699,north stairway (1st floor),main convention,4
+32400,32699,north stairway (1st floor),north stairway (2nd floor),1
+32400,32699,poster area,exhibition hall,6
+32400,32699,poster area,main convention,26
+32400,32699,poster area,north stairway (1st floor),2
+32400,32699,poster area,south stairway (1st floor),17
+32400,32699,poster area,toilet 1,24
+32400,32699,room 2,exhibition hall,1
+32400,32699,room 2,main convention,43
+32400,32699,room 2,north stairway (1st floor),4
+32400,32699,room 2,poster area,14
+32400,32699,room 2,south stairway (1st floor),4
+32400,32699,room 4,main convention,9
+32400,32699,room 6,south stairway (2nd floor),2
+32400,32699,south stairway (1st floor),exhibition hall,5
+32400,32699,south stairway (1st floor),main convention,55
+32400,32699,south stairway (1st floor),poster area,3
+32400,32699,south stairway (1st floor),south stairway (2nd floor),130
+32400,32699,south stairway (1st floor),toilet 2,1
+32400,32699,south stairway (2nd floor),room 5,109
+32400,32699,south stairway (2nd floor),room 6,1
+32400,32699,south stairway (2nd floor),south stairway (1st floor),113
+32400,32699,south stairway (2nd floor),toilet 3,12
+32400,32699,toilet 1,exhibition hall,14
+32400,32699,toilet 1,main convention,26
+32400,32699,toilet 1,poster area,20
+32400,32699,toilet 1,south stairway (1st floor),12
+32400,32699,toilet 2,exhibition hall,3
+32400,32699,toilet 2,main convention,19
+32400,32699,toilet 2,poster area,2
+32400,32699,toilet 2,south stairway (1st floor),4
+32400,32699,toilet 3,room 5,2
+32400,32699,toilet 3,south stairway (2nd floor),29
+32700,32999,exhibition hall,main convention,121
+32700,32999,exhibition hall,south stairway (1st floor),2
+32700,32999,main convention,north stairway (1st floor),1
+32700,32999,north stairway (1st floor),main convention,1
+32700,32999,north stairway (1st floor),north stairway (2nd floor),1
+32700,32999,north stairway (2nd floor),room 5,2
+32700,32999,poster area,main convention,126
+32700,32999,poster area,south stairway (1st floor),4
+32700,32999,poster area,toilet 1,7
+32700,32999,room 2,exhibition hall,1
+32700,32999,room 2,main convention,92
+32700,32999,room 2,poster area,5
+32700,32999,room 4,main convention,1
+32700,32999,room 6,south stairway (2nd floor),1
+32700,32999,south stairway (1st floor),exhibition hall,2
+32700,32999,south stairway (1st floor),main convention,99
+32700,32999,south stairway (1st floor),south stairway (2nd floor),39
+32700,32999,south stairway (2nd floor),room 5,49
+32700,32999,south stairway (2nd floor),south stairway (1st floor),4
+32700,32999,toilet 1,exhibition hall,5
+32700,32999,toilet 1,main convention,56
+32700,32999,toilet 1,poster area,8
+32700,32999,toilet 1,south stairway (1st floor),1
+32700,32999,toilet 2,main convention,7
+32700,32999,toilet 3,south stairway (2nd floor),2
+33000,33299,north stairway (1st floor),main convention,1
+33000,33299,poster area,exhibition hall,1
+33000,33299,poster area,main convention,25
+33000,33299,poster area,north stairway (1st floor),1
+33000,33299,poster area,toilet 1,20
+33000,33299,room 2,poster area,1
+33000,33299,room 2,toilet 1,1
+33000,33299,room 3,exhibition hall,8
+33000,33299,south stairway (1st floor),exhibition hall,9
+33000,33299,south stairway (1st floor),main convention,10
+33000,33299,south stairway (1st floor),south stairway (2nd floor),15
+33000,33299,south stairway (2nd floor),room 5,13
+33000,33299,south stairway (2nd floor),room 6,1
+33000,33299,south stairway (2nd floor),south stairway (1st floor),5
+33000,33299,toilet 1,exhibition hall,2
+33000,33299,toilet 1,main convention,6
+33000,33299,toilet 1,poster area,10
+33000,33299,toilet 2,exhibition hall,1
+33000,33299,toilet 2,main convention,2
+33000,33299,toilet 2,south stairway (1st floor),1
+33000,33299,toilet 3,south stairway (2nd floor),1
+33300,33599,exhibition hall,main convention,1
+33300,33599,poster area,exhibition hall,4
+33300,33599,poster area,main convention,9
+33300,33599,poster area,room 2,6
+33300,33599,poster area,room 3,2
+33300,33599,poster area,south stairway (1st floor),2
+33300,33599,poster area,toilet 1,14
+33300,33599,room 2,poster area,1
+33300,33599,room 3,exhibition hall,6
+33300,33599,room 3,south stairway (1st floor),1
+33300,33599,south stairway (1st floor),exhibition hall,8
+33300,33599,south stairway (1st floor),south stairway (2nd floor),10
+33300,33599,south stairway (2nd floor),room 5,1
+33300,33599,south stairway (2nd floor),room 6,2
+33300,33599,south stairway (2nd floor),south stairway (1st floor),4
+33300,33599,south stairway (2nd floor),toilet 3,4
+33300,33599,toilet 1,poster area,19
+33300,33599,toilet 1,room 2,1
+33300,33599,toilet 2,exhibition hall,2
+33300,33599,toilet 2,main convention,1
+33300,33599,toilet 2,poster area,2
+33300,33599,toilet 2,south stairway (1st floor),1
+33300,33599,toilet 3,south stairway (2nd floor),1
+33600,33899,exhibition hall,main convention,2
+33600,33899,poster area,exhibition hall,11
+33600,33899,poster area,main convention,3
+33600,33899,poster area,room 2,2
+33600,33899,poster area,south stairway (1st floor),2
+33600,33899,poster area,sub convention a,2
+33600,33899,poster area,sub convention b,1
+33600,33899,poster area,sub convention c,1
+33600,33899,poster area,toilet 1,12
+33600,33899,poster area,toilet 2,1
+33600,33899,room 3,exhibition hall,10
+33600,33899,room 3,poster area,1
+33600,33899,room 3,south stairway (1st floor),2
+33600,33899,room 6,south stairway (2nd floor),4
+33600,33899,south stairway (1st floor),exhibition hall,10
+33600,33899,south stairway (1st floor),poster area,5
+33600,33899,south stairway (1st floor),room 3,1
+33600,33899,south stairway (1st floor),south stairway (2nd floor),12
+33600,33899,south stairway (1st floor),toilet 2,1
+33600,33899,south stairway (2nd floor),room 5,1
+33600,33899,south stairway (2nd floor),room 6,1
+33600,33899,south stairway (2nd floor),south stairway (1st floor),9
+33600,33899,south stairway (2nd floor),toilet 3,4
+33600,33899,toilet 1,exhibition hall,1
+33600,33899,toilet 1,poster area,19
+33600,33899,toilet 1,room 2,1
+33600,33899,toilet 2,exhibition hall,1
+33600,33899,toilet 2,poster area,2
+33600,33899,toilet 3,south stairway (2nd floor),3
+33900,34199,exhibition hall,main convention,1
+33900,34199,poster area,exhibition hall,17
+33900,34199,poster area,main convention,1
+33900,34199,poster area,room 2,1
+33900,34199,poster area,room 3,5
+33900,34199,poster area,south stairway (1st floor),5
+33900,34199,poster area,sub convention c,2
+33900,34199,poster area,toilet 1,16
+33900,34199,room 3,exhibition hall,6
+33900,34199,room 3,poster area,1
+33900,34199,south stairway (1st floor),exhibition hall,12
+33900,34199,south stairway (1st floor),poster area,1
+33900,34199,south stairway (1st floor),south stairway (2nd floor),11
+33900,34199,south stairway (2nd floor),room 6,1
+33900,34199,south stairway (2nd floor),south stairway (1st floor),6
+33900,34199,south stairway (2nd floor),toilet 3,6
+33900,34199,toilet 1,exhibition hall,2
+33900,34199,toilet 1,poster area,22
+33900,34199,toilet 1,toilet 2,1
+33900,34199,toilet 2,exhibition hall,3
+33900,34199,toilet 2,main convention,1
+33900,34199,toilet 2,room 3,1
+33900,34199,toilet 2,south stairway (1st floor),1
+33900,34199,toilet 3,south stairway (2nd floor),3
+34200,34499,exhibition hall,poster area,150
+34200,34499,exhibition hall,south stairway (1st floor),2
+34200,34499,exhibition hall,sub convention b,2
+34200,34499,exhibition hall,sub convention c,5
+34200,34499,exhibition hall,toilet 2,5
+34200,34499,main convention,north stairway (1st floor),2
+34200,34499,main convention,poster area,2
+34200,34499,north stairway (1st floor),poster area,2
+34200,34499,poster area,exhibition hall,9
+34200,34499,poster area,main convention,1
+34200,34499,poster area,room 3,2
+34200,34499,poster area,sub convention a,54
+34200,34499,poster area,sub convention b,263
+34200,34499,poster area,sub convention c,115
+34200,34499,poster area,toilet 1,5
+34200,34499,poster area,toilet 2,1
+34200,34499,room 2,north stairway (1st floor),2
+34200,34499,room 2,poster area,3
+34200,34499,room 3,poster area,8
+34200,34499,room 6,south stairway (2nd floor),3
+34200,34499,south stairway (1st floor),exhibition hall,8
+34200,34499,south stairway (1st floor),main convention,1
+34200,34499,south stairway (1st floor),poster area,17
+34200,34499,south stairway (1st floor),room 3,1
+34200,34499,south stairway (1st floor),south stairway (2nd floor),4
+34200,34499,south stairway (1st floor),sub convention b,2
+34200,34499,south stairway (1st floor),sub convention c,2
+34200,34499,south stairway (2nd floor),room 6,1
+34200,34499,south stairway (2nd floor),south stairway (1st floor),25
+34200,34499,south stairway (2nd floor),toilet 3,3
+34200,34499,toilet 1,exhibition hall,1
+34200,34499,toilet 1,poster area,24
+34200,34499,toilet 1,sub convention b,1
+34200,34499,toilet 2,main convention,1
+34200,34499,toilet 2,poster area,2
+34200,34499,toilet 3,south stairway (2nd floor),5
+34500,34799,exhibition hall,poster area,14
+34500,34799,exhibition hall,south stairway (1st floor),2
+34500,34799,exhibition hall,sub convention a,1
+34500,34799,exhibition hall,sub convention b,1
+34500,34799,exhibition hall,sub convention c,2
+34500,34799,exhibition hall,toilet 1,1
+34500,34799,exhibition hall,toilet 2,3
+34500,34799,main convention,exhibition hall,8
+34500,34799,main convention,north stairway (1st floor),1
+34500,34799,main convention,poster area,6
+34500,34799,main convention,room 2,2
+34500,34799,main convention,room 4,1
+34500,34799,main convention,south stairway (1st floor),3
+34500,34799,main convention,toilet 2,13
+34500,34799,north stairway (1st floor),north stairway (2nd floor),1
+34500,34799,north stairway (2nd floor),toilet 3,1
+34500,34799,poster area,exhibition hall,1
+34500,34799,poster area,room 3,1
+34500,34799,poster area,sub convention a,17
+34500,34799,poster area,sub convention b,67
+34500,34799,poster area,sub convention c,7
+34500,34799,poster area,toilet 1,4
+34500,34799,room 3,poster area,3
+34500,34799,south stairway (1st floor),exhibition hall,1
+34500,34799,south stairway (1st floor),poster area,3
+34500,34799,south stairway (1st floor),south stairway (2nd floor),4
+34500,34799,south stairway (1st floor),toilet 2,1
+34500,34799,south stairway (2nd floor),south stairway (1st floor),4
+34500,34799,south stairway (2nd floor),toilet 3,3
+34500,34799,toilet 1,exhibition hall,1
+34500,34799,toilet 1,poster area,3
+34500,34799,toilet 1,sub convention b,1
+34500,34799,toilet 1,sub convention c,1
+34500,34799,toilet 2,exhibition hall,2
+34500,34799,toilet 2,poster area,6
+34500,34799,toilet 3,rest area,1
+34500,34799,toilet 3,south stairway (2nd floor),3
+34800,35099,exhibition hall,poster area,11
+34800,35099,exhibition hall,south stairway (1st floor),2
+34800,35099,exhibition hall,toilet 1,1
+34800,35099,exhibition hall,toilet 2,6
+34800,35099,main convention,exhibition hall,12
+34800,35099,main convention,north stairway (1st floor),7
+34800,35099,main convention,poster area,98
+34800,35099,main convention,room 2,2
+34800,35099,main convention,room 3,3
+34800,35099,main convention,room 4,2
+34800,35099,main convention,south stairway (1st floor),9
+34800,35099,main convention,sub convention b,2
+34800,35099,main convention,toilet 1,7
+34800,35099,main convention,toilet 2,82
+34800,35099,north stairway (1st floor),north stairway (2nd floor),4
+34800,35099,north stairway (1st floor),poster area,3
+34800,35099,north stairway (1st floor),room 2,1
+34800,35099,north stairway (1st floor),toilet 1,1
+34800,35099,north stairway (2nd floor),north stairway (1st floor),2
+34800,35099,north stairway (2nd floor),toilet 3,3
+34800,35099,poster area,sub convention a,8
+34800,35099,poster area,sub convention b,106
+34800,35099,poster area,sub convention c,3
+34800,35099,poster area,toilet 1,3
+34800,35099,room 2,north stairway (1st floor),1
+34800,35099,room 3,exhibition hall,3
+34800,35099,south stairway (1st floor),exhibition hall,1
+34800,35099,south stairway (1st floor),poster area,1
+34800,35099,south stairway (1st floor),south stairway (2nd floor),12
+34800,35099,south stairway (2nd floor),rest area,2
+34800,35099,south stairway (2nd floor),south stairway (1st floor),4
+34800,35099,south stairway (2nd floor),toilet 3,6
+34800,35099,sub convention b,poster area,1
+34800,35099,toilet 1,exhibition hall,1
+34800,35099,toilet 1,poster area,5
+34800,35099,toilet 1,room 2,1
+34800,35099,toilet 2,exhibition hall,2
+34800,35099,toilet 2,main convention,1
+34800,35099,toilet 2,poster area,12
+34800,35099,toilet 3,north stairway (2nd floor),3
+34800,35099,toilet 3,south stairway (2nd floor),4
+35100,35399,exhibition hall,main convention,30
+35100,35399,exhibition hall,poster area,3
+35100,35399,exhibition hall,south stairway (1st floor),1
+35100,35399,exhibition hall,toilet 2,3
+35100,35399,main convention,exhibition hall,21
+35100,35399,main convention,north stairway (1st floor),3
+35100,35399,main convention,poster area,251
+35100,35399,main convention,room 2,5
+35100,35399,main convention,room 4,2
+35100,35399,main convention,south stairway (1st floor),16
+35100,35399,main convention,sub convention b,14
+35100,35399,main convention,toilet 1,13
+35100,35399,main convention,toilet 2,51
+35100,35399,north stairway (1st floor),exhibition hall,1
+35100,35399,north stairway (1st floor),main convention,7
+35100,35399,north stairway (1st floor),north stairway (2nd floor),1
+35100,35399,north stairway (1st floor),poster area,2
+35100,35399,north stairway (1st floor),room 2,1
+35100,35399,north stairway (2nd floor),north stairway (1st floor),4
+35100,35399,north stairway (2nd floor),toilet 3,1
+35100,35399,poster area,main convention,10
+35100,35399,poster area,north stairway (1st floor),2
+35100,35399,poster area,sub convention a,1
+35100,35399,poster area,sub convention b,265
+35100,35399,poster area,sub convention c,4
+35100,35399,poster area,toilet 1,5
+35100,35399,room 2,main convention,9
+35100,35399,room 2,north stairway (1st floor),1
+35100,35399,room 2,poster area,2
+35100,35399,room 3,exhibition hall,2
+35100,35399,room 3,poster area,1
+35100,35399,room 4,main convention,6
+35100,35399,south stairway (1st floor),exhibition hall,1
+35100,35399,south stairway (1st floor),main convention,4
+35100,35399,south stairway (1st floor),poster area,2
+35100,35399,south stairway (1st floor),south stairway (2nd floor),16
+35100,35399,south stairway (1st floor),sub convention b,1
+35100,35399,south stairway (2nd floor),south stairway (1st floor),8
+35100,35399,south stairway (2nd floor),toilet 3,18
+35100,35399,sub convention b,poster area,4
+35100,35399,toilet 1,exhibition hall,1
+35100,35399,toilet 1,main convention,4
+35100,35399,toilet 1,north stairway (1st floor),2
+35100,35399,toilet 1,poster area,2
+35100,35399,toilet 2,exhibition hall,3
+35100,35399,toilet 2,main convention,79
+35100,35399,toilet 2,poster area,27
+35100,35399,toilet 2,room 2,3
+35100,35399,toilet 2,room 3,2
+35100,35399,toilet 2,south stairway (1st floor),1
+35100,35399,toilet 2,sub convention b,1
+35100,35399,toilet 3,north stairway (2nd floor),2
+35100,35399,toilet 3,south stairway (2nd floor),8
+35400,35699,exhibition hall,main convention,11
+35400,35699,exhibition hall,poster area,3
+35400,35699,main convention,poster area,4
+35400,35699,main convention,sub convention b,7
+35400,35699,main convention,toilet 1,2
+35400,35699,north stairway (1st floor),main convention,1
+35400,35699,poster area,main convention,6
+35400,35699,poster area,south stairway (1st floor),1
+35400,35699,poster area,sub convention b,55
+35400,35699,poster area,toilet 1,2
+35400,35699,room 2,main convention,5
+35400,35699,room 2,north stairway (1st floor),1
+35400,35699,room 2,poster area,1
+35400,35699,south stairway (1st floor),exhibition hall,1
+35400,35699,south stairway (1st floor),main convention,15
+35400,35699,south stairway (2nd floor),south stairway (1st floor),16
+35400,35699,south stairway (2nd floor),toilet 3,1
+35400,35699,sub convention b,poster area,15
+35400,35699,toilet 1,main convention,13
+35400,35699,toilet 1,poster area,2
+35400,35699,toilet 2,main convention,21
+35400,35699,toilet 2,poster area,1
+35400,35699,toilet 3,south stairway (2nd floor),14
+35700,35999,exhibition hall,main convention,3
+35700,35999,exhibition hall,poster area,3
+35700,35999,exhibition hall,toilet 2,1
+35700,35999,north stairway (1st floor),main convention,1
+35700,35999,poster area,exhibition hall,1
+35700,35999,poster area,main convention,6
+35700,35999,poster area,south stairway (1st floor),1
+35700,35999,poster area,sub convention b,5
+35700,35999,poster area,toilet 1,1
+35700,35999,room 2,poster area,1
+35700,35999,south stairway (1st floor),exhibition hall,1
+35700,35999,south stairway (1st floor),main convention,2
+35700,35999,south stairway (2nd floor),south stairway (1st floor),2
+35700,35999,sub convention b,poster area,3
+35700,35999,sub convention c,poster area,1
+35700,35999,toilet 1,main convention,4
+35700,35999,toilet 1,poster area,1
+35700,35999,toilet 3,south stairway (2nd floor),1
+36000,36299,exhibition hall,main convention,1
+36000,36299,exhibition hall,poster area,7
+36000,36299,exhibition hall,toilet 1,1
+36000,36299,exhibition hall,toilet 2,1
+36000,36299,poster area,main convention,5
+36000,36299,poster area,sub convention b,4
+36000,36299,poster area,sub convention c,3
+36000,36299,south stairway (1st floor),exhibition hall,3
+36000,36299,south stairway (1st floor),main convention,1
+36000,36299,south stairway (2nd floor),south stairway (1st floor),3
+36000,36299,sub convention b,poster area,6
+36000,36299,toilet 1,main convention,2
+36000,36299,toilet 1,poster area,1
+36000,36299,toilet 2,main convention,1
+36000,36299,toilet 3,south stairway (2nd floor),2
+36300,36599,exhibition hall,main convention,1
+36300,36599,exhibition hall,poster area,7
+36300,36599,exhibition hall,toilet 1,2
+36300,36599,exhibition hall,toilet 2,1
+36300,36599,poster area,exhibition hall,1
+36300,36599,poster area,main convention,3
+36300,36599,poster area,south stairway (1st floor),2
+36300,36599,poster area,sub convention b,10
+36300,36599,poster area,toilet 1,1
+36300,36599,room 2,main convention,1
+36300,36599,south stairway (1st floor),south stairway (2nd floor),3
+36300,36599,south stairway (2nd floor),rest area,1
+36300,36599,sub convention b,poster area,10
+36300,36599,sub convention c,sub convention b,1
+36300,36599,toilet 1,main convention,1
+36300,36599,toilet 1,poster area,1
+36300,36599,toilet 2,main convention,1
+36300,36599,toilet 2,south stairway (1st floor),1
+36600,36899,exhibition hall,main convention,1
+36600,36899,exhibition hall,poster area,4
+36600,36899,exhibition hall,toilet 1,1
+36600,36899,exhibition hall,toilet 2,2
+36600,36899,poster area,main convention,4
+36600,36899,poster area,room 2,2
+36600,36899,poster area,south stairway (1st floor),2
+36600,36899,poster area,sub convention b,4
+36600,36899,poster area,toilet 1,5
+36600,36899,room 2,poster area,1
+36600,36899,south stairway (1st floor),exhibition hall,2
+36600,36899,south stairway (1st floor),south stairway (2nd floor),2
+36600,36899,south stairway (2nd floor),south stairway (1st floor),1
+36600,36899,south stairway (2nd floor),toilet 3,2
+36600,36899,sub convention b,poster area,28
+36600,36899,toilet 1,poster area,2
+36600,36899,toilet 2,main convention,1
+36600,36899,toilet 2,poster area,1
+36600,36899,toilet 2,south stairway (1st floor),1
+36900,37199,exhibition hall,main convention,1
+36900,37199,exhibition hall,poster area,1
+36900,37199,exhibition hall,south stairway (1st floor),1
+36900,37199,exhibition hall,sub convention b,1
+36900,37199,exhibition hall,toilet 1,1
+36900,37199,exhibition hall,toilet 2,2
+36900,37199,main convention,toilet 2,1
+36900,37199,poster area,exhibition hall,1
+36900,37199,poster area,main convention,6
+36900,37199,poster area,room 2,1
+36900,37199,poster area,south stairway (1st floor),6
+36900,37199,poster area,toilet 1,16
+36900,37199,poster area,toilet 2,3
+36900,37199,rest area,south stairway (2nd floor),1
+36900,37199,room 2,north stairway (1st floor),1
+36900,37199,room 2,poster area,2
+36900,37199,south stairway (1st floor),exhibition hall,2
+36900,37199,south stairway (1st floor),main convention,1
+36900,37199,south stairway (1st floor),south stairway (2nd floor),9
+36900,37199,south stairway (2nd floor),rest area,2
+36900,37199,south stairway (2nd floor),room 6,2
+36900,37199,south stairway (2nd floor),south stairway (1st floor),5
+36900,37199,south stairway (2nd floor),toilet 3,2
+36900,37199,sub convention a,poster area,1
+36900,37199,sub convention b,poster area,48
+36900,37199,toilet 1,exhibition hall,1
+36900,37199,toilet 1,poster area,8
+36900,37199,toilet 1,south stairway (1st floor),1
+36900,37199,toilet 3,south stairway (2nd floor),2
+37200,37499,exhibition hall,poster area,1
+37200,37499,exhibition hall,south stairway (1st floor),2
+37200,37499,exhibition hall,toilet 1,1
+37200,37499,exhibition hall,toilet 2,3
+37200,37499,main convention,exhibition hall,4
+37200,37499,main convention,north stairway (1st floor),1
+37200,37499,main convention,poster area,3
+37200,37499,main convention,room 3,1
+37200,37499,main convention,room 4,1
+37200,37499,main convention,south stairway (1st floor),5
+37200,37499,main convention,toilet 1,1
+37200,37499,main convention,toilet 2,18
+37200,37499,north stairway (1st floor),north stairway (2nd floor),1
+37200,37499,poster area,exhibition hall,7
+37200,37499,poster area,main convention,1
+37200,37499,poster area,room 2,3
+37200,37499,poster area,room 3,1
+37200,37499,poster area,south stairway (1st floor),8
+37200,37499,poster area,sub convention b,3
+37200,37499,poster area,toilet 1,36
+37200,37499,poster area,toilet 2,4
+37200,37499,rest area,toilet 3,1
+37200,37499,room 2,poster area,1
+37200,37499,room 6,south stairway (2nd floor),3
+37200,37499,south stairway (1st floor),exhibition hall,3
+37200,37499,south stairway (1st floor),south stairway (2nd floor),18
+37200,37499,south stairway (2nd floor),rest area,3
+37200,37499,south stairway (2nd floor),room 6,3
+37200,37499,south stairway (2nd floor),south stairway (1st floor),7
+37200,37499,south stairway (2nd floor),toilet 3,10
+37200,37499,sub convention a,poster area,10
+37200,37499,sub convention b,poster area,59
+37200,37499,sub convention b,south stairway (1st floor),1
+37200,37499,toilet 1,exhibition hall,2
+37200,37499,toilet 1,poster area,21
+37200,37499,toilet 2,exhibition hall,4
+37200,37499,toilet 2,poster area,1
+37200,37499,toilet 3,rest area,3
+37200,37499,toilet 3,south stairway (2nd floor),3
+37500,37799,exhibition hall,south stairway (1st floor),2
+37500,37799,exhibition hall,toilet 2,1
+37500,37799,main convention,exhibition hall,41
+37500,37799,main convention,north stairway (1st floor),6
+37500,37799,main convention,poster area,13
+37500,37799,main convention,room 2,10
+37500,37799,main convention,room 3,5
+37500,37799,main convention,room 4,2
+37500,37799,main convention,south stairway (1st floor),22
+37500,37799,main convention,sub convention b,1
+37500,37799,main convention,toilet 1,15
+37500,37799,main convention,toilet 2,133
+37500,37799,north stairway (1st floor),north stairway (2nd floor),4
+37500,37799,north stairway (1st floor),room 2,1
+37500,37799,north stairway (1st floor),toilet 1,1
+37500,37799,north stairway (2nd floor),north stairway (1st floor),2
+37500,37799,north stairway (2nd floor),toilet 3,2
+37500,37799,poster area,exhibition hall,2
+37500,37799,poster area,room 2,1
+37500,37799,poster area,room 3,1
+37500,37799,poster area,south stairway (1st floor),20
+37500,37799,poster area,sub convention b,9
+37500,37799,poster area,toilet 1,48
+37500,37799,poster area,toilet 2,5
+37500,37799,rest area,south stairway (2nd floor),1
+37500,37799,rest area,toilet 3,1
+37500,37799,room 2,poster area,2
+37500,37799,room 3,exhibition hall,3
+37500,37799,room 3,toilet 2,1
+37500,37799,room 6,south stairway (2nd floor),2
+37500,37799,south stairway (1st floor),exhibition hall,2
+37500,37799,south stairway (1st floor),poster area,1
+37500,37799,south stairway (1st floor),room 3,1
+37500,37799,south stairway (1st floor),south stairway (2nd floor),50
+37500,37799,south stairway (2nd floor),rest area,15
+37500,37799,south stairway (2nd floor),room 6,2
+37500,37799,south stairway (2nd floor),south stairway (1st floor),6
+37500,37799,south stairway (2nd floor),toilet 3,18
+37500,37799,sub convention a,poster area,29
+37500,37799,sub convention b,exhibition hall,1
+37500,37799,sub convention b,poster area,55
+37500,37799,sub convention b,toilet 2,1
+37500,37799,sub convention c,poster area,1
+37500,37799,toilet 1,exhibition hall,4
+37500,37799,toilet 1,poster area,26
+37500,37799,toilet 1,room 3,1
+37500,37799,toilet 1,south stairway (1st floor),3
+37500,37799,toilet 2,exhibition hall,13
+37500,37799,toilet 2,main convention,1
+37500,37799,toilet 2,poster area,3
+37500,37799,toilet 2,room 2,1
+37500,37799,toilet 2,room 3,1
+37500,37799,toilet 2,south stairway (1st floor),3
+37500,37799,toilet 2,sub convention c,1
+37500,37799,toilet 3,north stairway (2nd floor),2
+37500,37799,toilet 3,rest area,5
+37500,37799,toilet 3,south stairway (2nd floor),5
+37800,38099,exhibition hall,room 1,9
+37800,38099,exhibition hall,room 3,30
+37800,38099,exhibition hall,toilet 2,3
+37800,38099,main convention,exhibition hall,14
+37800,38099,main convention,north stairway (1st floor),27
+37800,38099,main convention,poster area,72
+37800,38099,main convention,room 1,4
+37800,38099,main convention,room 2,6
+37800,38099,main convention,room 3,11
+37800,38099,main convention,room 4,6
+37800,38099,main convention,south stairway (1st floor),32
+37800,38099,main convention,sub convention a,9
+37800,38099,main convention,sub convention b,1
+37800,38099,main convention,toilet 1,27
+37800,38099,main convention,toilet 2,257
+37800,38099,north stairway (1st floor),north stairway (2nd floor),5
+37800,38099,north stairway (1st floor),poster area,12
+37800,38099,north stairway (1st floor),room 2,1
+37800,38099,north stairway (1st floor),sub convention a,7
+37800,38099,north stairway (1st floor),toilet 1,1
+37800,38099,north stairway (2nd floor),north stairway (1st floor),2
+37800,38099,north stairway (2nd floor),toilet 3,7
+37800,38099,poster area,exhibition hall,2
+37800,38099,poster area,room 1,22
+37800,38099,poster area,room 2,3
+37800,38099,poster area,room 3,33
+37800,38099,poster area,south stairway (1st floor),9
+37800,38099,poster area,sub convention a,58
+37800,38099,poster area,sub convention b,32
+37800,38099,poster area,sub convention c,1
+37800,38099,poster area,toilet 1,51
+37800,38099,poster area,toilet 2,6
+37800,38099,rest area,south stairway (2nd floor),14
+37800,38099,room 2,poster area,5
+37800,38099,room 2,room 1,1
+37800,38099,room 2,room 3,5
+37800,38099,room 3,exhibition hall,5
+37800,38099,room 3,poster area,1
+37800,38099,room 3,south stairway (1st floor),1
+37800,38099,room 4,room 3,1
+37800,38099,room 4,toilet 2,1
+37800,38099,room 5,south stairway (2nd floor),54
+37800,38099,south stairway (1st floor),exhibition hall,5
+37800,38099,south stairway (1st floor),main convention,1
+37800,38099,south stairway (1st floor),poster area,3
+37800,38099,south stairway (1st floor),room 1,13
+37800,38099,south stairway (1st floor),room 3,50
+37800,38099,south stairway (1st floor),south stairway (2nd floor),50
+37800,38099,south stairway (1st floor),toilet 1,1
+37800,38099,south stairway (2nd floor),rest area,14
+37800,38099,south stairway (2nd floor),south stairway (1st floor),93
+37800,38099,south stairway (2nd floor),toilet 3,33
+37800,38099,sub convention a,north stairway (1st floor),1
+37800,38099,sub convention a,poster area,20
+37800,38099,sub convention b,poster area,66
+37800,38099,sub convention b,room 1,1
+37800,38099,toilet 1,exhibition hall,2
+37800,38099,toilet 1,poster area,36
+37800,38099,toilet 1,room 1,10
+37800,38099,toilet 1,room 2,4
+37800,38099,toilet 1,room 3,2
+37800,38099,toilet 1,south stairway (1st floor),9
+37800,38099,toilet 2,exhibition hall,11
+37800,38099,toilet 2,poster area,25
+37800,38099,toilet 2,room 1,3
+37800,38099,toilet 2,room 2,1
+37800,38099,toilet 2,room 3,18
+37800,38099,toilet 2,south stairway (1st floor),3
+37800,38099,toilet 2,sub convention b,4
+37800,38099,toilet 3,north stairway (2nd floor),2
+37800,38099,toilet 3,rest area,5
+37800,38099,toilet 3,south stairway (2nd floor),23
+38100,38399,exhibition hall,room 1,1
+38100,38399,exhibition hall,toilet 2,1
+38100,38399,main convention,exhibition hall,2
+38100,38399,main convention,north stairway (1st floor),4
+38100,38399,main convention,poster area,248
+38100,38399,main convention,room 1,19
+38100,38399,main convention,south stairway (1st floor),18
+38100,38399,main convention,sub convention a,15
+38100,38399,main convention,toilet 1,12
+38100,38399,main convention,toilet 2,11
+38100,38399,north stairway (1st floor),north stairway (2nd floor),2
+38100,38399,north stairway (1st floor),poster area,6
+38100,38399,north stairway (1st floor),room 2,1
+38100,38399,north stairway (1st floor),sub convention a,6
+38100,38399,north stairway (2nd floor),north stairway (1st floor),5
+38100,38399,north stairway (2nd floor),toilet 3,2
+38100,38399,poster area,exhibition hall,3
+38100,38399,poster area,north stairway (1st floor),1
+38100,38399,poster area,room 1,14
+38100,38399,poster area,room 3,2
+38100,38399,poster area,south stairway (1st floor),11
+38100,38399,poster area,sub convention a,250
+38100,38399,poster area,sub convention b,1
+38100,38399,poster area,toilet 1,29
+38100,38399,poster area,toilet 2,8
+38100,38399,room 1,poster area,2
+38100,38399,room 1,room 2,1
+38100,38399,room 1,south stairway (1st floor),4
+38100,38399,room 2,poster area,4
+38100,38399,room 3,exhibition hall,5
+38100,38399,room 3,poster area,1
+38100,38399,room 3,south stairway (1st floor),2
+38100,38399,room 3,toilet 2,4
+38100,38399,room 4,room 1,1
+38100,38399,south stairway (1st floor),exhibition hall,5
+38100,38399,south stairway (1st floor),poster area,15
+38100,38399,south stairway (1st floor),room 1,3
+38100,38399,south stairway (1st floor),room 3,18
+38100,38399,south stairway (1st floor),south stairway (2nd floor),36
+38100,38399,south stairway (2nd floor),rest area,14
+38100,38399,south stairway (2nd floor),south stairway (1st floor),23
+38100,38399,south stairway (2nd floor),toilet 3,28
+38100,38399,sub convention a,north stairway (1st floor),1
+38100,38399,sub convention a,poster area,1
+38100,38399,sub convention b,poster area,51
+38100,38399,sub convention c,poster area,1
+38100,38399,toilet 1,exhibition hall,2
+38100,38399,toilet 1,poster area,47
+38100,38399,toilet 1,room 1,3
+38100,38399,toilet 1,room 2,2
+38100,38399,toilet 1,room 3,3
+38100,38399,toilet 1,south stairway (1st floor),4
+38100,38399,toilet 2,exhibition hall,15
+38100,38399,toilet 2,main convention,1
+38100,38399,toilet 2,poster area,58
+38100,38399,toilet 2,room 1,44
+38100,38399,toilet 2,room 2,2
+38100,38399,toilet 2,room 3,1
+38100,38399,toilet 2,room 4,1
+38100,38399,toilet 2,south stairway (1st floor),2
+38100,38399,toilet 2,sub convention a,4
+38100,38399,toilet 3,north stairway (2nd floor),5
+38100,38399,toilet 3,rest area,3
+38100,38399,toilet 3,south stairway (2nd floor),21
+38400,38699,exhibition hall,south stairway (1st floor),1
+38400,38699,exhibition hall,sub convention a,1
+38400,38699,main convention,poster area,54
+38400,38699,main convention,sub convention a,7
+38400,38699,main convention,toilet 1,2
+38400,38699,north stairway (1st floor),poster area,1
+38400,38699,north stairway (1st floor),room 2,1
+38400,38699,north stairway (2nd floor),north stairway (1st floor),2
+38400,38699,poster area,exhibition hall,6
+38400,38699,poster area,room 2,10
+38400,38699,poster area,room 3,1
+38400,38699,poster area,south stairway (1st floor),29
+38400,38699,poster area,sub convention a,356
+38400,38699,poster area,sub convention c,1
+38400,38699,poster area,toilet 1,27
+38400,38699,poster area,toilet 2,9
+38400,38699,room 1,poster area,49
+38400,38699,room 1,south stairway (1st floor),12
+38400,38699,room 1,toilet 1,7
+38400,38699,room 2,poster area,11
+38400,38699,room 3,exhibition hall,20
+38400,38699,room 3,poster area,8
+38400,38699,room 3,room 2,4
+38400,38699,room 3,room 4,1
+38400,38699,room 3,south stairway (1st floor),20
+38400,38699,room 3,toilet 1,1
+38400,38699,room 3,toilet 2,58
+38400,38699,room 4,poster area,1
+38400,38699,south stairway (1st floor),poster area,19
+38400,38699,south stairway (1st floor),room 1,1
+38400,38699,south stairway (1st floor),south stairway (2nd floor),70
+38400,38699,south stairway (1st floor),sub convention a,3
+38400,38699,south stairway (2nd floor),rest area,46
+38400,38699,south stairway (2nd floor),south stairway (1st floor),15
+38400,38699,south stairway (2nd floor),toilet 3,6
+38400,38699,sub convention a,poster area,1
+38400,38699,sub convention b,poster area,37
+38400,38699,sub convention b,toilet 2,1
+38400,38699,toilet 1,exhibition hall,4
+38400,38699,toilet 1,poster area,25
+38400,38699,toilet 1,room 2,1
+38400,38699,toilet 1,south stairway (1st floor),10
+38400,38699,toilet 2,exhibition hall,5
+38400,38699,toilet 2,poster area,175
+38400,38699,toilet 2,room 1,18
+38400,38699,toilet 2,room 2,2
+38400,38699,toilet 2,room 3,2
+38400,38699,toilet 2,south stairway (1st floor),5
+38400,38699,toilet 2,sub convention a,10
+38400,38699,toilet 3,north stairway (2nd floor),2
+38400,38699,toilet 3,rest area,3
+38400,38699,toilet 3,south stairway (2nd floor),15
+38700,38999,exhibition hall,south stairway (1st floor),1
+38700,38999,exhibition hall,toilet 2,1
+38700,38999,poster area,exhibition hall,8
+38700,38999,poster area,room 2,8
+38700,38999,poster area,room 3,1
+38700,38999,poster area,south stairway (1st floor),24
+38700,38999,poster area,sub convention a,31
+38700,38999,poster area,toilet 1,28
+38700,38999,poster area,toilet 2,6
+38700,38999,room 1,poster area,40
+38700,38999,room 1,room 4,1
+38700,38999,room 1,south stairway (1st floor),8
+38700,38999,room 1,toilet 1,6
+38700,38999,room 1,toilet 2,1
+38700,38999,room 2,poster area,3
+38700,38999,room 2,toilet 1,1
+38700,38999,room 3,exhibition hall,8
+38700,38999,room 3,poster area,8
+38700,38999,room 3,south stairway (1st floor),15
+38700,38999,room 3,toilet 1,9
+38700,38999,room 3,toilet 2,7
+38700,38999,south stairway (1st floor),exhibition hall,2
+38700,38999,south stairway (1st floor),poster area,6
+38700,38999,south stairway (1st floor),room 3,1
+38700,38999,south stairway (1st floor),south stairway (2nd floor),72
+38700,38999,south stairway (1st floor),sub convention a,1
+38700,38999,south stairway (2nd floor),rest area,58
+38700,38999,south stairway (2nd floor),room 5,1
+38700,38999,south stairway (2nd floor),south stairway (1st floor),11
+38700,38999,south stairway (2nd floor),toilet 3,15
+38700,38999,sub convention b,poster area,18
+38700,38999,sub convention b,toilet 2,1
+38700,38999,sub convention c,poster area,1
+38700,38999,toilet 1,exhibition hall,4
+38700,38999,toilet 1,poster area,27
+38700,38999,toilet 1,south stairway (1st floor),14
+38700,38999,toilet 2,exhibition hall,17
+38700,38999,toilet 2,poster area,10
+38700,38999,toilet 2,room 3,2
+38700,38999,toilet 2,south stairway (1st floor),3
+38700,38999,toilet 2,toilet 1,2
+38700,38999,toilet 3,rest area,4
+38700,38999,toilet 3,south stairway (2nd floor),11
+39000,39299,exhibition hall,main convention,152
+39000,39299,exhibition hall,poster area,2
+39000,39299,exhibition hall,south stairway (1st floor),1
+39000,39299,exhibition hall,toilet 1,1
+39000,39299,exhibition hall,toilet 2,2
+39000,39299,north stairway (1st floor),main convention,8
+39000,39299,north stairway (2nd floor),north stairway (1st floor),1
+39000,39299,poster area,exhibition hall,2
+39000,39299,poster area,main convention,78
+39000,39299,poster area,north stairway (1st floor),5
+39000,39299,poster area,room 2,2
+39000,39299,poster area,south stairway (1st floor),22
+39000,39299,poster area,sub convention a,15
+39000,39299,poster area,toilet 1,80
+39000,39299,poster area,toilet 2,2
+39000,39299,rest area,south stairway (2nd floor),139
+39000,39299,rest area,toilet 3,1
+39000,39299,room 1,main convention,21
+39000,39299,room 1,north stairway (1st floor),1
+39000,39299,room 1,poster area,3
+39000,39299,room 1,south stairway (1st floor),1
+39000,39299,room 1,sub convention a,1
+39000,39299,room 2,main convention,34
+39000,39299,room 2,north stairway (1st floor),1
+39000,39299,room 2,poster area,2
+39000,39299,room 3,main convention,2
+39000,39299,room 4,main convention,9
+39000,39299,room 5,south stairway (2nd floor),1
+39000,39299,room 6,south stairway (2nd floor),1
+39000,39299,south stairway (1st floor),main convention,41
+39000,39299,south stairway (1st floor),poster area,1
+39000,39299,south stairway (1st floor),south stairway (2nd floor),31
+39000,39299,south stairway (1st floor),sub convention a,1
+39000,39299,south stairway (2nd floor),rest area,16
+39000,39299,south stairway (2nd floor),room 6,2
+39000,39299,south stairway (2nd floor),south stairway (1st floor),168
+39000,39299,south stairway (2nd floor),toilet 3,9
+39000,39299,sub convention a,north stairway (1st floor),1
+39000,39299,sub convention a,poster area,1
+39000,39299,sub convention b,poster area,146
+39000,39299,sub convention c,poster area,22
+39000,39299,toilet 1,exhibition hall,3
+39000,39299,toilet 1,main convention,10
+39000,39299,toilet 1,poster area,44
+39000,39299,toilet 1,south stairway (1st floor),5
+39000,39299,toilet 2,exhibition hall,1
+39000,39299,toilet 2,main convention,19
+39000,39299,toilet 2,poster area,2
+39000,39299,toilet 2,south stairway (1st floor),2
+39000,39299,toilet 3,rest area,3
+39000,39299,toilet 3,south stairway (2nd floor),10
+39300,39599,exhibition hall,main convention,3
+39300,39599,main convention,exhibition hall,1
+39300,39599,north stairway (1st floor),main convention,1
+39300,39599,poster area,exhibition hall,3
+39300,39599,poster area,main convention,109
+39300,39599,poster area,room 2,1
+39300,39599,poster area,room 3,1
+39300,39599,poster area,south stairway (1st floor),6
+39300,39599,poster area,sub convention a,4
+39300,39599,poster area,toilet 1,36
+39300,39599,poster area,toilet 2,22
+39300,39599,rest area,south stairway (2nd floor),1
+39300,39599,room 1,main convention,3
+39300,39599,room 1,room 2,1
+39300,39599,room 3,main convention,1
+39300,39599,room 6,south stairway (2nd floor),1
+39300,39599,south stairway (1st floor),exhibition hall,1
+39300,39599,south stairway (1st floor),main convention,122
+39300,39599,south stairway (1st floor),south stairway (2nd floor),8
+39300,39599,south stairway (1st floor),toilet 1,1
+39300,39599,south stairway (1st floor),toilet 2,1
+39300,39599,south stairway (2nd floor),room 6,1
+39300,39599,south stairway (2nd floor),south stairway (1st floor),17
+39300,39599,south stairway (2nd floor),toilet 3,16
+39300,39599,sub convention b,main convention,1
+39300,39599,sub convention b,poster area,57
+39300,39599,sub convention c,poster area,14
+39300,39599,toilet 1,main convention,15
+39300,39599,toilet 1,poster area,35
+39300,39599,toilet 1,room 3,1
+39300,39599,toilet 1,south stairway (1st floor),4
+39300,39599,toilet 2,exhibition hall,1
+39300,39599,toilet 2,main convention,5
+39300,39599,toilet 2,poster area,2
+39300,39599,toilet 3,rest area,1
+39300,39599,toilet 3,south stairway (2nd floor),14
+39600,39899,exhibition hall,main convention,7
+39600,39899,exhibition hall,south stairway (1st floor),6
+39600,39899,exhibition hall,toilet 2,3
+39600,39899,main convention,south stairway (1st floor),13
+39600,39899,north stairway (1st floor),south stairway (1st floor),1
+39600,39899,poster area,exhibition hall,1
+39600,39899,poster area,main convention,9
+39600,39899,poster area,south stairway (1st floor),23
+39600,39899,poster area,sub convention a,12
+39600,39899,poster area,toilet 1,76
+39600,39899,poster area,toilet 2,7
+39600,39899,room 3,exhibition hall,1
+39600,39899,room 5,room 6,1
+39600,39899,south stairway (1st floor),exhibition hall,1
+39600,39899,south stairway (1st floor),main convention,1
+39600,39899,south stairway (1st floor),south stairway (2nd floor),64
+39600,39899,south stairway (1st floor),toilet 1,1
+39600,39899,south stairway (1st floor),toilet 2,1
+39600,39899,south stairway (2nd floor),rest area,1
+39600,39899,south stairway (2nd floor),room 6,38
+39600,39899,south stairway (2nd floor),south stairway (1st floor),14
+39600,39899,south stairway (2nd floor),toilet 3,12
+39600,39899,sub convention a,poster area,1
+39600,39899,sub convention b,poster area,99
+39600,39899,sub convention b,toilet 2,1
+39600,39899,sub convention c,poster area,23
+39600,39899,toilet 1,main convention,2
+39600,39899,toilet 1,poster area,33
+39600,39899,toilet 1,south stairway (1st floor),2
+39600,39899,toilet 2,main convention,2
+39600,39899,toilet 2,poster area,8
+39600,39899,toilet 2,room 3,2
+39600,39899,toilet 2,sub convention a,1
+39600,39899,toilet 3,rest area,3
+39600,39899,toilet 3,south stairway (2nd floor),12
+39900,40199,exhibition hall,main convention,7
+39900,40199,exhibition hall,poster area,1
+39900,40199,exhibition hall,toilet 2,1
+39900,40199,poster area,main convention,7
+39900,40199,poster area,south stairway (1st floor),21
+39900,40199,poster area,sub convention a,5
+39900,40199,poster area,toilet 1,70
+39900,40199,poster area,toilet 2,10
+39900,40199,rest area,south stairway (2nd floor),2
+39900,40199,room 3,exhibition hall,1
+39900,40199,room 3,toilet 1,1
+39900,40199,south stairway (1st floor),exhibition hall,1
+39900,40199,south stairway (1st floor),main convention,2
+39900,40199,south stairway (1st floor),south stairway (2nd floor),25
+39900,40199,south stairway (2nd floor),rest area,4
+39900,40199,south stairway (2nd floor),room 6,8
+39900,40199,south stairway (2nd floor),south stairway (1st floor),10
+39900,40199,south stairway (2nd floor),toilet 3,22
+39900,40199,sub convention b,poster area,86
+39900,40199,sub convention b,south stairway (1st floor),1
+39900,40199,sub convention c,poster area,23
+39900,40199,toilet 1,exhibition hall,3
+39900,40199,toilet 1,main convention,5
+39900,40199,toilet 1,poster area,53
+39900,40199,toilet 1,south stairway (1st floor),3
+39900,40199,toilet 2,exhibition hall,1
+39900,40199,toilet 2,main convention,2
+39900,40199,toilet 2,south stairway (1st floor),2
+39900,40199,toilet 3,south stairway (2nd floor),7
+40200,40499,exhibition hall,main convention,4
+40200,40499,north stairway (1st floor),main convention,1
+40200,40499,north stairway (1st floor),north stairway (2nd floor),2
+40200,40499,north stairway (2nd floor),north stairway (1st floor),1
+40200,40499,north stairway (2nd floor),toilet 3,2
+40200,40499,poster area,main convention,7
+40200,40499,poster area,north stairway (1st floor),1
+40200,40499,poster area,south stairway (1st floor),31
+40200,40499,poster area,toilet 1,85
+40200,40499,poster area,toilet 2,17
+40200,40499,rest area,south stairway (2nd floor),15
+40200,40499,room 2,north stairway (1st floor),1
+40200,40499,room 2,poster area,1
+40200,40499,south stairway (1st floor),main convention,2
+40200,40499,south stairway (1st floor),south stairway (2nd floor),25
+40200,40499,south stairway (1st floor),toilet 2,1
+40200,40499,south stairway (2nd floor),rest area,3
+40200,40499,south stairway (2nd floor),south stairway (1st floor),44
+40200,40499,south stairway (2nd floor),toilet 3,23
+40200,40499,sub convention a,main convention,1
+40200,40499,sub convention a,north stairway (1st floor),1
+40200,40499,sub convention a,poster area,41
+40200,40499,sub convention b,poster area,77
+40200,40499,sub convention b,south stairway (1st floor),1
+40200,40499,sub convention b,toilet 1,1
+40200,40499,sub convention b,toilet 2,1
+40200,40499,sub convention c,poster area,32
+40200,40499,sub convention c,toilet 1,1
+40200,40499,sub convention c,toilet 2,1
+40200,40499,toilet 1,exhibition hall,1
+40200,40499,toilet 1,main convention,3
+40200,40499,toilet 1,poster area,38
+40200,40499,toilet 1,south stairway (1st floor),4
+40200,40499,toilet 2,main convention,1
+40200,40499,toilet 2,poster area,1
+40200,40499,toilet 2,south stairway (1st floor),2
+40200,40499,toilet 3,north stairway (2nd floor),1
+40200,40499,toilet 3,south stairway (2nd floor),30
+40500,40799,exhibition hall,main convention,2
+40500,40799,exhibition hall,poster area,1
+40500,40799,exhibition hall,south stairway (1st floor),2
+40500,40799,exhibition hall,toilet 2,1
+40500,40799,north stairway (1st floor),main convention,2
+40500,40799,north stairway (2nd floor),north stairway (1st floor),1
+40500,40799,poster area,exhibition hall,2
+40500,40799,poster area,main convention,26
+40500,40799,poster area,room 2,3
+40500,40799,poster area,room 3,1
+40500,40799,poster area,south stairway (1st floor),26
+40500,40799,poster area,toilet 1,119
+40500,40799,poster area,toilet 2,13
+40500,40799,rest area,south stairway (2nd floor),3
+40500,40799,rest area,toilet 3,1
+40500,40799,room 2,poster area,1
+40500,40799,south stairway (1st floor),exhibition hall,2
+40500,40799,south stairway (1st floor),main convention,4
+40500,40799,south stairway (1st floor),south stairway (2nd floor),26
+40500,40799,south stairway (1st floor),toilet 1,2
+40500,40799,south stairway (1st floor),toilet 2,3
+40500,40799,south stairway (2nd floor),rest area,2
+40500,40799,south stairway (2nd floor),south stairway (1st floor),28
+40500,40799,south stairway (2nd floor),toilet 3,17
+40500,40799,sub convention a,main convention,1
+40500,40799,sub convention a,north stairway (1st floor),2
+40500,40799,sub convention a,poster area,203
+40500,40799,sub convention a,toilet 1,2
+40500,40799,sub convention b,poster area,69
+40500,40799,sub convention b,south stairway (1st floor),1
+40500,40799,sub convention c,poster area,40
+40500,40799,sub convention c,south stairway (1st floor),2
+40500,40799,toilet 1,poster area,74
+40500,40799,toilet 1,room 3,1
+40500,40799,toilet 1,south stairway (1st floor),5
+40500,40799,toilet 2,exhibition hall,2
+40500,40799,toilet 2,main convention,1
+40500,40799,toilet 3,north stairway (2nd floor),1
+40500,40799,toilet 3,south stairway (2nd floor),22
+40800,41099,exhibition hall,main convention,1
+40800,41099,exhibition hall,south stairway (1st floor),4
+40800,41099,main convention,toilet 2,3
+40800,41099,north stairway (1st floor),main convention,3
+40800,41099,north stairway (1st floor),north stairway (2nd floor),4
+40800,41099,north stairway (2nd floor),toilet 3,4
+40800,41099,poster area,exhibition hall,2
+40800,41099,poster area,main convention,60
+40800,41099,poster area,north stairway (1st floor),3
+40800,41099,poster area,room 2,12
+40800,41099,poster area,south stairway (1st floor),43
+40800,41099,poster area,toilet 1,201
+40800,41099,poster area,toilet 2,21
+40800,41099,rest area,south stairway (2nd floor),13
+40800,41099,rest area,toilet 3,3
+40800,41099,room 2,poster area,6
+40800,41099,room 2,toilet 1,1
+40800,41099,room 3,exhibition hall,1
+40800,41099,room 5,south stairway (2nd floor),31
+40800,41099,south stairway (1st floor),exhibition hall,2
+40800,41099,south stairway (1st floor),main convention,1
+40800,41099,south stairway (1st floor),poster area,2
+40800,41099,south stairway (1st floor),south stairway (2nd floor),37
+40800,41099,south stairway (2nd floor),rest area,6
+40800,41099,south stairway (2nd floor),south stairway (1st floor),62
+40800,41099,south stairway (2nd floor),toilet 3,24
+40800,41099,sub convention a,main convention,2
+40800,41099,sub convention a,north stairway (1st floor),5
+40800,41099,sub convention a,poster area,481
+40800,41099,sub convention a,south stairway (1st floor),2
+40800,41099,sub convention a,toilet 1,2
+40800,41099,sub convention b,poster area,40
+40800,41099,sub convention c,poster area,14
+40800,41099,toilet 1,main convention,2
+40800,41099,toilet 1,poster area,106
+40800,41099,toilet 1,room 2,1
+40800,41099,toilet 1,south stairway (1st floor),6
+40800,41099,toilet 1,toilet 2,3
+40800,41099,toilet 2,exhibition hall,2
+40800,41099,toilet 2,main convention,5
+40800,41099,toilet 2,south stairway (1st floor),1
+40800,41099,toilet 3,rest area,3
+40800,41099,toilet 3,south stairway (2nd floor),16
+41100,41399,exhibition hall,main convention,2
+41100,41399,exhibition hall,room 2,1
+41100,41399,exhibition hall,toilet 1,2
+41100,41399,exhibition hall,toilet 2,1
+41100,41399,main convention,exhibition hall,8
+41100,41399,main convention,north stairway (1st floor),3
+41100,41399,main convention,south stairway (1st floor),5
+41100,41399,main convention,toilet 1,1
+41100,41399,main convention,toilet 2,40
+41100,41399,north stairway (1st floor),main convention,3
+41100,41399,north stairway (1st floor),north stairway (2nd floor),1
+41100,41399,north stairway (1st floor),poster area,1
+41100,41399,north stairway (1st floor),room 2,1
+41100,41399,north stairway (2nd floor),north stairway (1st floor),5
+41100,41399,north stairway (2nd floor),toilet 3,1
+41100,41399,poster area,exhibition hall,1
+41100,41399,poster area,main convention,66
+41100,41399,poster area,north stairway (1st floor),2
+41100,41399,poster area,room 2,10
+41100,41399,poster area,room 3,1
+41100,41399,poster area,room 4,1
+41100,41399,poster area,south stairway (1st floor),43
+41100,41399,poster area,toilet 1,75
+41100,41399,poster area,toilet 2,41
+41100,41399,rest area,south stairway (2nd floor),6
+41100,41399,rest area,toilet 3,3
+41100,41399,room 2,exhibition hall,1
+41100,41399,room 2,poster area,5
+41100,41399,room 2,toilet 1,1
+41100,41399,room 3,exhibition hall,2
+41100,41399,room 5,south stairway (2nd floor),35
+41100,41399,south stairway (1st floor),poster area,1
+41100,41399,south stairway (1st floor),south stairway (2nd floor),48
+41100,41399,south stairway (1st floor),toilet 1,1
+41100,41399,south stairway (2nd floor),rest area,10
+41100,41399,south stairway (2nd floor),south stairway (1st floor),63
+41100,41399,south stairway (2nd floor),toilet 3,45
+41100,41399,sub convention a,poster area,60
+41100,41399,sub convention a,south stairway (1st floor),1
+41100,41399,sub convention a,toilet 1,2
+41100,41399,sub convention a,toilet 2,2
+41100,41399,sub convention b,poster area,2
+41100,41399,sub convention c,poster area,3
+41100,41399,toilet 1,main convention,3
+41100,41399,toilet 1,poster area,110
+41100,41399,toilet 1,room 2,4
+41100,41399,toilet 1,south stairway (1st floor),8
+41100,41399,toilet 2,exhibition hall,3
+41100,41399,toilet 2,main convention,7
+41100,41399,toilet 2,south stairway (1st floor),4
+41100,41399,toilet 3,north stairway (2nd floor),5
+41100,41399,toilet 3,rest area,11
+41100,41399,toilet 3,south stairway (2nd floor),21
+41400,41699,exhibition hall,main convention,3
+41400,41699,exhibition hall,poster area,1
+41400,41699,exhibition hall,south stairway (1st floor),1
+41400,41699,exhibition hall,toilet 1,2
+41400,41699,exhibition hall,toilet 2,3
+41400,41699,main convention,exhibition hall,53
+41400,41699,main convention,north stairway (1st floor),8
+41400,41699,main convention,poster area,10
+41400,41699,main convention,room 3,5
+41400,41699,main convention,room 4,4
+41400,41699,main convention,south stairway (1st floor),46
+41400,41699,main convention,toilet 1,11
+41400,41699,main convention,toilet 2,258
+41400,41699,north stairway (1st floor),north stairway (2nd floor),10
+41400,41699,north stairway (1st floor),room 2,2
+41400,41699,north stairway (2nd floor),north stairway (1st floor),2
+41400,41699,north stairway (2nd floor),toilet 3,8
+41400,41699,poster area,exhibition hall,5
+41400,41699,poster area,main convention,2
+41400,41699,poster area,north stairway (1st floor),6
+41400,41699,poster area,room 2,2
+41400,41699,poster area,south stairway (1st floor),36
+41400,41699,poster area,sub convention a,1
+41400,41699,poster area,toilet 1,68
+41400,41699,poster area,toilet 2,15
+41400,41699,rest area,south stairway (2nd floor),4
+41400,41699,room 2,north stairway (1st floor),2
+41400,41699,room 2,poster area,1
+41400,41699,room 3,exhibition hall,2
+41400,41699,room 3,south stairway (1st floor),1
+41400,41699,room 4,south stairway (1st floor),1
+41400,41699,room 5,room 6,1
+41400,41699,room 5,south stairway (2nd floor),37
+41400,41699,room 5,toilet 3,20
+41400,41699,room 6,north stairway (2nd floor),1
+41400,41699,room 6,room 5,1
+41400,41699,room 6,south stairway (2nd floor),38
+41400,41699,room 6,toilet 3,9
+41400,41699,south stairway (1st floor),exhibition hall,8
+41400,41699,south stairway (1st floor),main convention,4
+41400,41699,south stairway (1st floor),poster area,3
+41400,41699,south stairway (1st floor),south stairway (2nd floor),104
+41400,41699,south stairway (1st floor),toilet 1,2
+41400,41699,south stairway (1st floor),toilet 2,2
+41400,41699,south stairway (2nd floor),rest area,30
+41400,41699,south stairway (2nd floor),room 6,22
+41400,41699,south stairway (2nd floor),south stairway (1st floor),119
+41400,41699,south stairway (2nd floor),toilet 3,20
+41400,41699,sub convention a,poster area,17
+41400,41699,sub convention a,room 2,2
+41400,41699,sub convention a,south stairway (1st floor),4
+41400,41699,sub convention a,toilet 1,1
+41400,41699,sub convention b,poster area,4
+41400,41699,sub convention c,poster area,6
+41400,41699,toilet 1,exhibition hall,2
+41400,41699,toilet 1,main convention,1
+41400,41699,toilet 1,north stairway (1st floor),1
+41400,41699,toilet 1,poster area,52
+41400,41699,toilet 1,room 2,1
+41400,41699,toilet 1,room 3,1
+41400,41699,toilet 1,south stairway (1st floor),20
+41400,41699,toilet 2,exhibition hall,17
+41400,41699,toilet 2,main convention,6
+41400,41699,toilet 2,poster area,5
+41400,41699,toilet 2,room 3,3
+41400,41699,toilet 2,south stairway (1st floor),6
+41400,41699,toilet 3,north stairway (2nd floor),2
+41400,41699,toilet 3,rest area,12
+41400,41699,toilet 3,south stairway (2nd floor),38
+41700,41999,exhibition hall,main convention,99
+41700,41999,main convention,exhibition hall,19
+41700,41999,main convention,north stairway (1st floor),5
+41700,41999,main convention,poster area,17
+41700,41999,main convention,room 2,1
+41700,41999,main convention,room 3,1
+41700,41999,main convention,room 4,1
+41700,41999,main convention,south stairway (1st floor),42
+41700,41999,main convention,toilet 1,43
+41700,41999,main convention,toilet 2,105
+41700,41999,north stairway (1st floor),main convention,8
+41700,41999,north stairway (1st floor),north stairway (2nd floor),5
+41700,41999,north stairway (1st floor),poster area,1
+41700,41999,north stairway (1st floor),room 2,2
+41700,41999,north stairway (2nd floor),north stairway (1st floor),11
+41700,41999,north stairway (2nd floor),toilet 3,4
+41700,41999,poster area,exhibition hall,2
+41700,41999,poster area,main convention,44
+41700,41999,poster area,north stairway (1st floor),2
+41700,41999,poster area,room 2,3
+41700,41999,poster area,room 3,1
+41700,41999,poster area,south stairway (1st floor),12
+41700,41999,poster area,toilet 1,22
+41700,41999,poster area,toilet 2,7
+41700,41999,rest area,south stairway (2nd floor),39
+41700,41999,room 2,main convention,14
+41700,41999,room 2,north stairway (1st floor),1
+41700,41999,room 2,poster area,2
+41700,41999,room 3,exhibition hall,4
+41700,41999,room 3,main convention,2
+41700,41999,room 3,south stairway (1st floor),1
+41700,41999,room 4,main convention,5
+41700,41999,room 6,south stairway (2nd floor),7
+41700,41999,south stairway (1st floor),exhibition hall,3
+41700,41999,south stairway (1st floor),main convention,30
+41700,41999,south stairway (1st floor),poster area,1
+41700,41999,south stairway (1st floor),south stairway (2nd floor),69
+41700,41999,south stairway (1st floor),toilet 1,2
+41700,41999,south stairway (1st floor),toilet 2,3
+41700,41999,south stairway (2nd floor),rest area,25
+41700,41999,south stairway (2nd floor),room 6,1
+41700,41999,south stairway (2nd floor),south stairway (1st floor),86
+41700,41999,south stairway (2nd floor),toilet 3,53
+41700,41999,sub convention a,poster area,3
+41700,41999,toilet 1,main convention,9
+41700,41999,toilet 1,poster area,27
+41700,41999,toilet 1,room 2,5
+41700,41999,toilet 1,south stairway (1st floor),5
+41700,41999,toilet 1,toilet 2,1
+41700,41999,toilet 2,exhibition hall,46
+41700,41999,toilet 2,main convention,206
+41700,41999,toilet 2,poster area,10
+41700,41999,toilet 2,room 2,8
+41700,41999,toilet 2,room 4,1
+41700,41999,toilet 2,south stairway (1st floor),12
+41700,41999,toilet 2,toilet 1,6
+41700,41999,toilet 3,north stairway (2nd floor),9
+41700,41999,toilet 3,rest area,6
+41700,41999,toilet 3,room 6,8
+41700,41999,toilet 3,south stairway (2nd floor),33
+42000,42299,exhibition hall,main convention,15
+42000,42299,main convention,south stairway (1st floor),1
+42000,42299,main convention,toilet 1,1
+42000,42299,north stairway (1st floor),main convention,4
+42000,42299,north stairway (2nd floor),north stairway (1st floor),1
+42000,42299,poster area,exhibition hall,1
+42000,42299,poster area,main convention,47
+42000,42299,poster area,south stairway (1st floor),3
+42000,42299,poster area,toilet 1,5
+42000,42299,room 2,main convention,2
+42000,42299,room 2,toilet 1,1
+42000,42299,room 3,main convention,1
+42000,42299,room 6,south stairway (2nd floor),3
+42000,42299,south stairway (1st floor),exhibition hall,1
+42000,42299,south stairway (1st floor),main convention,72
+42000,42299,south stairway (1st floor),south stairway (2nd floor),3
+42000,42299,south stairway (2nd floor),room 6,2
+42000,42299,south stairway (2nd floor),south stairway (1st floor),44
+42000,42299,south stairway (2nd floor),toilet 3,7
+42000,42299,toilet 1,main convention,66
+42000,42299,toilet 1,north stairway (1st floor),1
+42000,42299,toilet 1,poster area,15
+42000,42299,toilet 1,room 2,1
+42000,42299,toilet 1,south stairway (1st floor),2
+42000,42299,toilet 2,exhibition hall,1
+42000,42299,toilet 2,main convention,58
+42000,42299,toilet 2,room 2,1
+42000,42299,toilet 2,south stairway (1st floor),2
+42000,42299,toilet 2,toilet 1,1
+42000,42299,toilet 3,north stairway (2nd floor),1
+42000,42299,toilet 3,rest area,4
+42000,42299,toilet 3,room 6,1
+42000,42299,toilet 3,south stairway (2nd floor),37
+42300,42599,exhibition hall,south stairway (1st floor),1
+42300,42599,main convention,poster area,1
+42300,42599,main convention,south stairway (1st floor),1
+42300,42599,north stairway (1st floor),main convention,2
+42300,42599,north stairway (2nd floor),north stairway (1st floor),2
+42300,42599,poster area,exhibition hall,2
+42300,42599,poster area,main convention,8
+42300,42599,poster area,north stairway (1st floor),1
+42300,42599,poster area,room 4,1
+42300,42599,poster area,south stairway (1st floor),3
+42300,42599,poster area,toilet 1,1
+42300,42599,rest area,south stairway (2nd floor),1
+42300,42599,room 2,poster area,1
+42300,42599,room 2,toilet 1,1
+42300,42599,room 4,toilet 2,1
+42300,42599,room 6,south stairway (2nd floor),2
+42300,42599,south stairway (1st floor),exhibition hall,1
+42300,42599,south stairway (1st floor),main convention,11
+42300,42599,south stairway (1st floor),room 4,1
+42300,42599,south stairway (1st floor),south stairway (2nd floor),3
+42300,42599,south stairway (2nd floor),rest area,1
+42300,42599,south stairway (2nd floor),room 6,1
+42300,42599,south stairway (2nd floor),south stairway (1st floor),6
+42300,42599,sub convention a,poster area,1
+42300,42599,toilet 1,main convention,4
+42300,42599,toilet 1,poster area,5
+42300,42599,toilet 2,room 2,1
+42300,42599,toilet 3,north stairway (2nd floor),2
+42300,42599,toilet 3,rest area,1
+42300,42599,toilet 3,south stairway (2nd floor),3
+42600,42899,exhibition hall,toilet 2,3
+42600,42899,main convention,south stairway (1st floor),1
+42600,42899,main convention,toilet 2,1
+42600,42899,north stairway (2nd floor),north stairway (1st floor),1
+42600,42899,north stairway (2nd floor),toilet 3,1
+42600,42899,poster area,exhibition hall,1
+42600,42899,poster area,main convention,2
+42600,42899,poster area,north stairway (1st floor),2
+42600,42899,poster area,room 2,1
+42600,42899,poster area,south stairway (1st floor),2
+42600,42899,poster area,toilet 1,2
+42600,42899,poster area,toilet 2,1
+42600,42899,rest area,south stairway (2nd floor),74
+42600,42899,rest area,toilet 3,1
+42600,42899,room 2,north stairway (1st floor),5
+42600,42899,room 2,poster area,7
+42600,42899,room 5,south stairway (2nd floor),1
+42600,42899,south stairway (1st floor),south stairway (2nd floor),1
+42600,42899,south stairway (1st floor),toilet 1,1
+42600,42899,south stairway (2nd floor),rest area,3
+42600,42899,south stairway (2nd floor),south stairway (1st floor),88
+42600,42899,toilet 1,main convention,1
+42600,42899,toilet 1,room 2,1
+42600,42899,toilet 2,exhibition hall,1
+42600,42899,toilet 2,main convention,1
+42600,42899,toilet 2,poster area,1
+42600,42899,toilet 2,south stairway (1st floor),1
+42600,42899,toilet 3,north stairway (2nd floor),1
+42900,43199,exhibition hall,main convention,1
+42900,43199,exhibition hall,south stairway (1st floor),1
+42900,43199,main convention,exhibition hall,11
+42900,43199,main convention,poster area,1
+42900,43199,main convention,room 3,2
+42900,43199,main convention,south stairway (1st floor),9
+42900,43199,main convention,toilet 1,3
+42900,43199,main convention,toilet 2,93
+42900,43199,poster area,toilet 1,1
+42900,43199,room 6,south stairway (2nd floor),1
+42900,43199,room 6,toilet 3,1
+42900,43199,south stairway (1st floor),south stairway (2nd floor),7
+42900,43199,south stairway (1st floor),toilet 2,1
+42900,43199,south stairway (2nd floor),south stairway (1st floor),2
+42900,43199,south stairway (2nd floor),toilet 3,2
+42900,43199,toilet 1,exhibition hall,1
+42900,43199,toilet 2,main convention,3
+42900,43199,toilet 3,south stairway (2nd floor),1
+43200,43499,exhibition hall,main convention,2
+43200,43499,exhibition hall,south stairway (1st floor),6
+43200,43499,exhibition hall,toilet 1,1
+43200,43499,exhibition hall,toilet 2,8
+43200,43499,main convention,exhibition hall,1
+43200,43499,main convention,poster area,2
+43200,43499,main convention,south stairway (1st floor),17
+43200,43499,main convention,toilet 1,6
+43200,43499,main convention,toilet 2,7
+43200,43499,poster area,south stairway (1st floor),1
+43200,43499,poster area,toilet 1,1
+43200,43499,room 6,south stairway (2nd floor),11
+43200,43499,room 6,toilet 3,12
+43200,43499,south stairway (1st floor),south stairway (2nd floor),15
+43200,43499,south stairway (1st floor),toilet 1,3
+43200,43499,south stairway (1st floor),toilet 2,4
+43200,43499,south stairway (2nd floor),south stairway (1st floor),25
+43200,43499,south stairway (2nd floor),toilet 3,15
+43200,43499,toilet 1,poster area,5
+43200,43499,toilet 2,main convention,6
+43200,43499,toilet 2,south stairway (1st floor),1
+43200,43499,toilet 3,south stairway (2nd floor),12
+43500,43799,south stairway (2nd floor),south stairway (1st floor),17
+43500,43799,toilet 1,poster area,2
+43500,43799,toilet 2,south stairway (1st floor),1
+43500,43799,toilet 3,south stairway (2nd floor),16
+43800,44099,south stairway (2nd floor),south stairway (1st floor),4
+43800,44099,toilet 2,main convention,1
+43800,44099,toilet 3,south stairway (2nd floor),2
+44400,44699,main convention,poster area,1
+44400,44699,main convention,toilet 2,1
+44400,44699,north stairway (2nd floor),south stairway (2nd floor),1
+44400,44699,south stairway (2nd floor),south stairway (1st floor),2
