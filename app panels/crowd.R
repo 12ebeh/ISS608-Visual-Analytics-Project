@@ -10,14 +10,16 @@ choropleth_ui <- function(namespace) {
   ns <- NS(namespace)
   
   box(
-    title = "Floor Choropleth Map", width = 12, id = ns("floor_box"), collapsible = T,
+    title = "Floor Choropleth Map", width = 5, id = ns("floor_box"), collapsible = T,
     tagList(
-      div(style="display:inline;",
+      #div(style="display:inline;",
         #actionButton(ns("toggle_box"), label = "Show/Hide"),
-        checkboxInput(ns("group_area"), label = "Show as Area")
-      ),
-      column(6, plotlyOutput(ns("floor1"), height = "auto")),
-      column(6, plotlyOutput(ns("floor2"), height = "auto"))
+        #checkboxInput(ns("group_area"), label = "Show as Area")
+      #),
+      plotlyOutput(ns("floor1"), height = "300px"),
+      plotlyOutput(ns("floor2"), height = "300px")
+      #column(6, plotlyOutput(ns("floor1"), height = "auto")),
+      #column(6, plotlyOutput(ns("floor2"), height = "auto"))
     )
   )
 }
@@ -25,9 +27,9 @@ choropleth_ui <- function(namespace) {
 ridgelines_ui <- function(namespace) {
   ns <- NS(namespace)
   
-  box(title = "Ridgeline Plot", width = 10,
+  box(title = "Ridgeline Plot", width = 5, height = "663px",
     tagList(
-      plotOutput(ns("ridgeline_plot"))
+      plotOutput(ns("ridgeline_plot"), height = "600px")
     )
   )
 }
@@ -38,12 +40,11 @@ ridgelines_ui <- function(namespace) {
 tab.name <- "crowd"
 crowd_panel <- tabItem(
   tabName = tab.name,
-  #fluidRow(
-    h3("Crowd Analysis"),
-  #),
-  
+  h3("Crowd Analysis"),
   fluidRow(
-    choropleth_ui(PANEL.NAMESPACE)
+    choropleth_ui(PANEL.NAMESPACE),
+    ridgelines_ui(PANEL.NAMESPACE),
+    box(title = "Area Control", width = 2, uiOutput("crowd_areas_select"))
   ),
   fluidRow(
     box(
@@ -54,10 +55,7 @@ crowd_panel <- tabItem(
     )
   ),
   fluidRow(
-    box(title = "Area Control", width = 2, uiOutput("crowd_areas_select")),
-    ridgelines_ui(PANEL.NAMESPACE)
   )
-  #ridgelines_ui(PANEL.NAMESPACE)
 )
 
 ADD_PANEL(crowd_panel, panel.label = "Crowd Analysis", panel.name = tab.name)

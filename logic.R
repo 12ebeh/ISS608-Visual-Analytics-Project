@@ -1,4 +1,4 @@
-INITIAL_AREAS <<- c("main convention", "exhibition hall a", "exhibition hall b", "exhibition hall c", "exhibition hall d", "exhibition hall",
+INITIAL_AREAS <<- c("main convention", "sub convention a", "sub convention b", "sub convention c", "sub convention d", "exhibition hall",
                     "poster area", "room 1", "room 2", "room 3", "room 4", "room 5", "room 6", "restaurant", "rest area")
 SUNBURST_EXCLUDE_CATEGORY <- c("common", "toilet", "entrance", "exit", "stairway","service counter")
 
@@ -7,8 +7,8 @@ DAYS <<- list()
 DAYS_SIMPLIFIED <<- list()
 DAYS_AREA <<- list()
 DAYS_MOVEMENT <<- list()
-DAYS_NODE <<- list()
-DAYS_CONNECTION <<- list()
+#DAYS_NODE <<- list()
+#DAYS_CONNECTION <<- list()
 DAYS_SUNBURST <<- list()
 
 SELECT_COLORS <- function(cols1, cols2){
@@ -40,10 +40,6 @@ LOAD_FILES <<- function(files) {
 LOAD_DATA <<- function() {
   SENSORS <<- read_csv("./data/sensor location.csv")
   ZONES <<- read_csv("./data/zones.csv")
-  FLOOR1 <<- grid::rasterGrob(imager::load.image("./floor plan/floor 1.jpg"),
-                              width = unit(1,"npc"), height = unit(1,"npc"))
-  FLOOR2 <<- grid::rasterGrob(imager::load.image("./floor plan/floor 2.jpg"),
-                              width = unit(1,"npc"), height = unit(1,"npc"))
   
   day.list <- c("day1", "day2", "day3")
   
@@ -73,6 +69,16 @@ LOAD_DATA <<- function() {
   
   #files <- paste("./data/", day.list, DATA_SUFFIXES["CONNECTION"], ".csv", sep = "")
   #DAYS_CONNECTION <<- LOAD_FILES(files)
+}
+
+CLEAR_DATA <- function() {
+  DAYS <<- list()
+  DAYS_SIMPLIFIED <<- list()
+  DAYS_AREA <<- list()
+  DAYS_MOVEMENT <<- list()
+  DAYS_SUNBURST <<- list()
+  SENSORS <<- NULL
+  ZONES <<- NULL
 }
 
 clean_sensors <- function(df) {
@@ -282,9 +288,10 @@ create_floor_map_plot <- function(df, floor, zvar.eq, zmin.val, zmax.val, show.l
     mutate(`have sensor` = 1) %>%
     plot_ly(x = ~px, y = ~py, z = zvar.eq, type = "heatmap", showscale = show.legend,
           autocolorscale=FALSE, zmin=zmin.val, zmax=zmax.val,
-          colorscale = list(c(0, "rgb(222,235,247)"), c(0.5, "rgb(158,202,225)"), c(1, "rgb(49,130,189)"))) %>%
+          #colorscale = list(c(0, "rgb(254,230,206)"), c(0.5, "rgb(253,174,107)"), c(1, "rgb(230,85,13)"))) %>%
+          colorscale = list(c(0, "rgb(234,220,196)"), c(0.5, "rgb(223,164,97)"), c(1, "rgb(200,75,3)"))) %>%
     layout(
-      title = paste("Floor", floor), autosize = F,
+      title = paste("Floor", floor), autosize = T,
       xaxis = list(
         range = c(0, 29), 
         autorange = F
@@ -367,6 +374,7 @@ create_sunburst_data_wide <- function(df.sunburst, start_time, end_time) {
     select(-id) %>%
     unite(path, everything()) %>%
     mutate(path = str_replace_all(path, '[_]+$', '')) %>%
+    mutate(path = str_replace_all(path, '^[_]+', '')) %>%
     mutate(path = str_replace_all(path, '_', '-')) %>%
     group_by(path) %>%
     count() %>%

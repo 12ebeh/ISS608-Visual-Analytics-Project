@@ -2,10 +2,9 @@
 # Include Libraries
 ###############################################################################
 packages <- c("tidyverse" = T, "tidygraph" = T, "lubridate" = T,
-              "shiny" = T, "shinyTree"= T, "shinydashboard" = T, "shinyjs" = T, "plotly" = T, 
+              "shiny" = T, "shinydashboard" = T, "shinyjs" = T, "plotly" = T, 
               "igraph" = T, "visNetwork" = T, "sunburstR" = T, "RColorBrewer" = T, "viridis" = T,
-              "funModeling" = F, "imager" = F, "grid" = F, "sqldf" = F, "ggridges" = F,
-              "gridExtra" = F, "networkD3" = F, "ggraph" = F)
+              "sqldf" = F, "ggridges" = F)
 installed <- installed.packages()
 for (p in 1:length(packages)) {
   package.name <- names(packages[p])
@@ -38,6 +37,7 @@ source("logic.R")
 ###############################################################################
 # Core Data Files
 ###############################################################################
+CLEAR_DATA()
 LOAD_DATA()
 
 SENSORS <<- clean_sensors(SENSORS)
@@ -86,10 +86,14 @@ source("./app panels/movement.R", local = T)
 ui <- dashboardPage(
   dashboardHeader(title = "MoVis"),
   dashboardSidebar(
+    #width = 150,
     do.call(sidebarMenu, SIDEBAR_MENU)
   ),
   dashboardBody(
     useShinyjs(),
+    tags$head(
+      tags$link(rel = "stylesheet", type = "text/css", href = "app.css")
+    ),
     do.call(tabItems, PANELS)
   )
 )

@@ -11,11 +11,11 @@ chord_and_sunburst_ui <- function(namespace) {
   
   fluidRow(
     box(
-      title = "Sunburst Diagram", collapsible = T, width = 6,
+      title = "Path Travelled over Time", collapsible = T, width = 6,
       sunburstOutput(ns("sunburst_plot"), height = "550px")
     ),
     box(
-      title = "Chord Diagram", collapsible = T, width = 6,
+      title = "Interrelationship between Areas", collapsible = T, width = 6,
       chorddiagOutput(ns("chord_plot"), height = "550px")
     )
   )
@@ -27,11 +27,9 @@ chord_and_sunburst_ui <- function(namespace) {
 tab.name <- "movement"
 movement_panel <- tabItem(
   tabName = tab.name,
-  #fluidRow(
-  h2("Movement Analysis"),
-  #),
+  h2("Path Analysis"),
   fluidRow(
-    box(width = 12, title = "Movement Analysis Controls",
+    box(width = 12, title = "Day and Time",
         column(2, selectInput("movement_day_select", label = "Select Day",
                               choices =  c("Day 1" = 1, "Day 2" = 2, "Day 3" = 3))),
         column(10, uiOutput("movement_time_control"))
@@ -41,7 +39,7 @@ movement_panel <- tabItem(
 )
 
 # call this function to add the tab panel
-ADD_PANEL(movement_panel, panel.label = "Movement Analysis", panel.name = tab.name)
+ADD_PANEL(movement_panel, panel.label = "Path Analysis", panel.name = tab.name)
 
 ###############################################################################
 # Panel's Server Modules
@@ -61,7 +59,6 @@ chord_and_sunburst <- function(input, output, session, prv) {
   
   data_sunburst <- reactive({
     prv <- prv()
-    #areas <- data_area() %>% .$area %>% unique()
     create_sunburst_data_wide(DAYS_SUNBURST[[prv$day_selected]], prv$start_time, prv$end_time) %>%
       return()
   })

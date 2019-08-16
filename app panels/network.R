@@ -10,23 +10,8 @@ network_visualization_ui <- function(namespace) {
   ns <- NS(namespace)
   
   box(
-    title = "Network Graph", collapsible = T, width = 12,
-    visNetworkOutput(ns("network_vis_plot"), height = "auto")
-  )
-}
-
-chord_and_sunburst_ui <- function(namespace) {
-  ns <- NS(namespace)
-  
-  fluidRow(
-    box(
-      title = "Sunburst Diagram", collapsible = T, width = 12,
-      sunburstOutput(ns("sunburst_plot"))
-    ),
-    box(
-      title = "Chord Diagram", collapsible = T, width = 12,
-      chorddiagOutput(ns("chord_plot"))
-    )
+    collapsible = T, width = 10, #title = "Network Graph",
+    visNetworkOutput(ns("network_vis_plot"), height = "550px")
   )
 }
 
@@ -36,22 +21,23 @@ chord_and_sunburst_ui <- function(namespace) {
 tab.name <- "network"
 network_panel <- tabItem(
   tabName = tab.name,
-  #fluidRow(
-    h2("Network Analysis"),
-  #),
+  h2("Network Analysis"),
   fluidRow(
-    box(width = 12, title = "Network Controls",
-      column(2, selectInput("network_day_select", label = "Select Day",
-                            choices =  c("Day 1" = 1, "Day 2" = 2, "Day 3" = 3))),
-      column(2, selectInput("network_measure_select", label = "Select Network Measure",
-                            choices =  c("Closeness", "Betweenness", "In-degree", "Out-degree"))),
-      column(8, uiOutput("network_time_control"))
+    box(width = 12, title = "Time Controls",
+      column(width = 12, uiOutput("network_time_control"))
     )
   ),
   fluidRow(
+    box(width = 2, title = "Network Controls",
+      tagList(
+        selectInput("network_day_select", label = "Select Day",
+                    choices =  c("Day 1" = 1, "Day 2" = 2, "Day 3" = 3)),
+        selectInput("network_measure_select", label = "Select Centrality Measure",
+                    choices =  c("Closeness", "Betweenness", "In-degree", "Out-degree"))
+      )
+    ),
     network_visualization_ui(PANEL.NAMESPACE)
-  )#,
-  #chord_and_sunburst_ui(paste(PANEL.NAMESPACE,"2", sep = "_"))
+  )
 )
 
 # call this function to add the tab panel
@@ -75,9 +61,9 @@ network_visualization <- function(input, output, session, prv) {
   
   day_movement <- reactive({
     prv <- prv()
-    #areas <- data_area() %>% .$area %>% unique()
-    #create_daily_movement(data_simplified(), areas, prv$start_time, prv$end_time) %>%
-    return(DAYS_MOVEMENT[[prv$day_selected]])
+    DAYS_MOVEMENT[[prv$day_selected]] %>%
+      filter(!(start_time > prv$end_time | end_time < prv$start_time )) %>%
+      return()
   })
   
   output$network_vis_plot <- renderVisNetwork({
@@ -117,56 +103,8 @@ network_visualization <- function(input, output, session, prv) {
       #visLegend(width = 0.2, position = "right", main = "Area Groups", useGroups =TRUE, stepX = 50) %>%
       visInteraction(navigationButtons = TRUE, dragNodes = FALSE, dragView = FALSE, zoomView = FALSE)
   })
-  
 }
 
-chord_and_sunburst <- function(input, output, session, prv) {
-  ns <- session$ns
-  
-  data_simplified <- reactive({
-    prv <- prv()
-    return(DAYS_SIMPLIFIED[[prv$day_selected]])
-  })
-  
-  data_area <- reactive({
-    prv <- prv()
-    return(DAYS_AREA[[prv$day_selected]])
-  })
-  
-  data_sunburst <- reactive({
-    prv <- prv()
-    areas <- data_area() %>% .$area %>% unique()
-    create_sunburst_data(data_simplified(), areas, prv$start_time, prv$end_time) %>%
-      return()
-  })
-  
-  data_chord <- reactive({
-    prv <- prv()
-    areas <- data_area() %>% .$area %>% unique()
-    create_chord_data(data_simplified(), areas, prv$start_time, prv$end_time) %>%
-      return()
-  })
-  
-  output$sunburst_plot <- renderSunburst({
-    sunburst(data_sunburst())
-  })
-  
-  output$chord_plot <- renderChorddiag({
-    colors <- SELECT_COLORS(rev(viridis(15,1)),magma(30,1))
-    chorddiag(
-      data = data_chord(),
-      groupnamePadding = 10,
-      groupPadding = 4,
-      groupnameFontsize = 13,
-      groupColors=colors,
-      showTicks = FALSE,
-      margin=120,
-      tooltipGroupConnector = "    &#x25B6;    ",
-      chordedgeColor = "#B3B6B7"
-    )
-  })
-  
-}
 ###############################################################################
 # Add the tab panel's server code here
 ###############################################################################
@@ -220,7 +158,6 @@ network_server <- substitute({
   })
   
   callModule(network_visualization, PANEL.NAMESPACE, function() return(rv))
-  #callModule(chord_and_sunburst, paste(PANEL.NAMESPACE, "2", sep = "_"), function() return(rv))
 })
 
 ADD_SERVER_LOGIC(network_server)

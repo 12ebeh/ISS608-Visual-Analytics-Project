@@ -41,7 +41,6 @@ data_prep_settings_ui <- function(namespace) {
       "1 hour" = 60*MINUTE_IN_SECONDS
       )
     ),
-    #shinyTree(ns("tree"), checkbox = TRUE),
     actionButton(ns("generate_data"), "Generate Data"),
     actionButton(ns("reload_data"), "Reload Data")
   )
@@ -151,6 +150,7 @@ data_prep_settings <- function(input, output, session) {
   })
   
   observeEvent(input$reload_data, {
+    CLEAR_DATA()
     LOAD_DATA()
   })
 }
