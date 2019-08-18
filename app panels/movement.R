@@ -93,7 +93,7 @@ chord_and_sunburst <- function(input, output, session, prv) {
 # Add the tab panel's server code here
 ###############################################################################
 movment_server <- substitute({
-  rv <- reactiveValues(
+  rv2 <- reactiveValues(
     day_selected = 1,
     start_time = 0,
     end_time = 86400,
@@ -101,7 +101,7 @@ movment_server <- substitute({
   )
   
   data_simplified <- reactive({
-    return(DAYS_SIMPLIFIED[[rv$day_selected]])
+    return(DAYS_SIMPLIFIED[[rv2$day_selected]])
   })
   
   movememt_day_time_settings <- reactive({
@@ -110,19 +110,19 @@ movment_server <- substitute({
   })
   
   observeEvent(input$movement_day_select, {
-    rv$day_selected <- as.integer(input$movement_day_select)
-    print(paste("day_selected changed:", rv$day_selected))
+    rv2$day_selected <- as.integer(input$movement_day_select)
+    print(paste("day_selected changed:", rv2$day_selected))
   })
   
   observeEvent(input$movement_time_range, {
     if (!is.null(input$movement_time_range[1])) {
-      rv$start_time <- as.integer(input$movement_time_range[1])
+      rv2$start_time <- as.integer(input$movement_time_range[1])
     }
     if (!is.null(input$movement_time_range[2])) {
-      rv$end_time <- as.integer(input$movement_time_range[2])
+      rv2$end_time <- as.integer(input$movement_time_range[2])
     }
-    print(paste("start_time changed:", rv$start_time))
-    print(paste("end_time changed:", rv$end_time))
+    print(paste("start_time changed:", rv2$start_time))
+    print(paste("end_time changed:", rv2$end_time))
   })
   
   output$movement_time_control <- renderUI({
@@ -140,7 +140,7 @@ movment_server <- substitute({
     )
   })
   
-  callModule(chord_and_sunburst, PANEL.NAMESPACE, function() return(rv))
+  callModule(chord_and_sunburst, PANEL.NAMESPACE, function() return(rv2))
 })
 
 ADD_SERVER_LOGIC(movment_server)
